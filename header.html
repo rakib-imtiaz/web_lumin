@@ -586,6 +586,18 @@
         .main-nav .fa-chevron-down {
             color: #008080 !important;
         }
+
+        /* Mobile Menu Overlay with Blur */
+        .mobile-menu-overlay {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* When menu is active */
+        #mobile-menu.active {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
     </style>
 </head>
 
@@ -692,183 +704,55 @@
                             </button>
                         </div>
 
-                        <!-- Scrollable Content Area -->
+                        <!-- Mobile Menu Panel Content -->
                         <div class="flex-1 overflow-y-auto custom-scrollbar">
                             <nav class="py-2">
-                                <!-- Quick Links -->
-                                <div class="px-5 py-2 space-y-3">
-                                    <a href="/pages/about_us/careers.html"
-                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
-                                        <i class="fas fa-briefcase w-6 text-base"></i>
-                                        <span class="text-base font-medium ml-2">CAREERS</span>
-                                    </a>
-                                    <a href="/login"
-                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
-                                        <i class="fas fa-user w-6 text-base"></i>
-                                        <span class="text-base font-medium ml-2">EMPLOYEE LOGIN</span>
-                                    </a>
-                                </div>
-
                                 <!-- Main Navigation with Icons -->
                                 <div class="mt-3 px-5">
-                                    <!-- Security Services Section -->
+                                    <!-- Services Dropdown -->
                                     <div class="px-5">
                                         <div class="text-white py-2">
                                             <span class="flex items-center">
-                                                <i class="fas fa-shield-alt w-6 text-base"></i>
-                                                <span class="text-base font-medium ml-2">SECURITY SERVICES</span>
+                                                <i class="fas fa-cogs w-6 text-base"></i>
+                                                <span class="text-base font-medium ml-2">SERVICES</span>
                                             </span>
                                         </div>
                                         <div class="mobile-submenu">
-                                            <a href="/pages/security_services/guard_services.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-shield-alt w-6 text-sm"></i>
-                                                <span>Guard Services</span>
+                                            <a href="/services/programming" class="flex items-center">
+                                                <i class="fas fa-code w-6 text-sm"></i>
+                                                <span>Programming Projects</span>
                                             </a>
-                                            <a href="/pages/security_services/mobile_patrol.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-car w-6 text-sm"></i>
-                                                <span>Mobile Patrol</span>
-                                            </a>
-                                            <a href="/pages/security_services/loss_prevention.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-user-shield w-6 text-sm"></i>
-                                                <span>Loss Prevention</span>
-                                            </a>
-                                            <a href="/pages/security_services/event_security_services.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-calendar-check w-6 text-sm"></i>
-                                                <span>Event Security Services</span>
-                                            </a>
-                                            <a href="/pages/security_services/operations_centers.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-building w-6 text-sm"></i>
-                                                <span>Operations Centres</span>
-                                            </a>
-                                            <a href="/pages/security_services/investigations_risk_management.html"
-                                                class="flex items-center">
+                                            <a href="/services/seo" class="flex items-center">
                                                 <i class="fas fa-search w-6 text-sm"></i>
-                                                <span>Investigations & Risk Management</span>
+                                                <span>SEO Services</span>
                                             </a>
-                                            <a href="/pages/security_services/" class="flex items-center">
-                                                <i class="fas fa-parking w-6 text-sm"></i>
-                                                <span>Parking Management</span>
+                                            <a href="/services/web-development" class="flex items-center">
+                                                <i class="fas fa-laptop-code w-6 text-sm"></i>
+                                                <span>Web Development</span>
                                             </a>
-                                            <!-- <a href="/pages/services/access_control" class="flex items-center">
-                                                <i class="fas fa-key w-6 text-sm"></i>
-                                                <span>Access Control</span>
-                                            </a> -->
-                                            <!-- <a href="/pages/services/video_services" class="flex items-center">
-                                                <i class="fas fa-video w-6 text-sm"></i>
-                                                <span>Video Services</span>
-                                            </a> -->
-                                        </div>
-                                    </div>
-
-                                    <!-- Industries Section -->
-                                    <div class="px-5">
-                                        <div class="text-white py-2">
-                                            <span class="flex items-center">
-                                                <i class="fas fa-industry w-6 text-base"></i>
-                                                <span class="text-base font-medium ml-2">INDUSTRIES</span>
-                                            </span>
-                                        </div>
-                                        <div class="mobile-submenu">
-                                            <a href="/pages/Industries/healthcare.html" class="flex items-center">
-                                                <i class="fas fa-hospital w-6 text-sm"></i>
-                                                <span>Healthcare</span>
-                                            </a>
-                                            <a href="/pages/Industries/office_and_commercial.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-building w-6 text-sm"></i>
-                                                <span>Office & Commercial</span>
-                                            </a>
-                                            <a href="/pages/Industries/retail_and_shopping_malls.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-shopping-cart w-6 text-sm"></i>
-                                                <span>Retail & Shopping Malls</span>
-                                            </a>
-                                            <a href="/pages/Industries/post_secondary.html" class="flex items-center">
-                                                <i class="fas fa-graduation-cap w-6 text-sm"></i>
-                                                <span>Post Secondary</span>
-                                            </a>
-                                            <a href="/pages/Industries/aviation.html" class="flex items-center">
-                                                <i class="fas fa-plane w-6 text-sm"></i>
-                                                <span>Aviation</span>
-                                            </a>
-                                            <a href="/pages/Industries/industrial_security.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-industry w-6 text-sm"></i>
-                                                <span>Industrial Security</span>
-                                            </a>
-                                            <a href="/pages/Industries/government_and_infrastructure.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-landmark w-6 text-sm"></i>
-                                                <span>Government & Infrastructure</span>
-                                            </a>
-                                            <a href="/pages/Industries/warehous_and_distribution.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-warehouse w-6 text-sm"></i>
-                                                <span>Warehouse & Distribution</span>
+                                            <a href="/services/digital-marketing" class="flex items-center">
+                                                <i class="fas fa-bullhorn w-6 text-sm"></i>
+                                                <span>Digital Marketing</span>
                                             </a>
                                         </div>
                                     </div>
 
-                                    <!-- Locations -->
-                                    <a href="/pages/locations/location.html"
-                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
-                                        <i class="fas fa-map-marker-alt w-6 text-base"></i>
-                                        <span class="text-base font-medium ml-2">LOCATIONS</span>
+                                    <!-- Portfolio -->
+                                    <a href="/portfolio" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                        <i class="fas fa-briefcase w-6 text-base"></i>
+                                        <span class="text-base font-medium ml-2">PORTFOLIO</span>
                                     </a>
 
-                                    <!-- About Us Section -->
-                                    <div class="px-5">
-                                        <div class="text-white py-2">
-                                            <span class="flex items-center">
-                                                <i class="fas fa-info-circle w-6 text-base"></i>
-                                                <span class="text-base font-medium ml-2">ABOUT US</span>
-                                            </span>
-                                        </div>
-                                        <div class="mobile-submenu">
-                                            <a href="/pages/about_us/why_sequoia.html" class="flex items-center">
-                                                <i class="fas fa-book-open w-6 text-sm"></i>
-                                                <span>Why Sequoia</span>
-                                            </a>
-                                            <a href="/pages/about_us/leadership_and_people.html"
-                                                class="flex items-center">
-                                                <i class="fas fa-users w-6 text-sm"></i>
-                                                <span>Leadership & People</span>
-                                            </a>
-                                            <a href="/pages/about_us/our_care_culture.html" class="flex items-center">
-                                                <i class="fas fa-heart w-6 text-sm"></i>
-                                                <span>Our Care Culture</span>
-                                            </a>
-                                            <a href="/pages/about_us/sequoia_cares.html" class="flex items-center">
-                                                <i class="fas fa-hands-helping w-6 text-sm"></i>
-                                                <span>Sequoia Cares</span>
-                                            </a>
-                                            <a href="/pages/about_us/our_companies.html" class="flex items-center">
-                                                <i class="fas fa-building w-6 text-sm"></i>
-                                                <span>Our Companies</span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <!-- About Us -->
+                                    <a href="/about" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                        <i class="fas fa-info-circle w-6 text-base"></i>
+                                        <span class="text-base font-medium ml-2">ABOUT US</span>
+                                    </a>
 
-                                    <!-- Additional Links -->
-                                    <a href="/pages/blog/blogs.html"
-                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
-                                        <i class="fas fa-blog w-6 text-base"></i>
-                                        <span class="text-base font-medium ml-2">BLOG</span>
-                                    </a>
-                                    <a href="/pages/podcast/podcast.html"
-                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
-                                        <i class="fas fa-microphone w-6 text-base"></i>
-                                        <span class="text-base font-medium ml-2">PODCAST</span>
-                                    </a>
-                                    <a href="/pages/resources"
-                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
-                                        <i class="fas fa-book w-6 text-base"></i>
-                                        <span class="text-base font-medium ml-2">RESOURCES</span>
+                                    <!-- Contact -->
+                                    <a href="/contact" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                        <i class="fas fa-envelope w-6 text-base"></i>
+                                        <span class="text-base font-medium ml-2">CONTACT</span>
                                     </a>
                                 </div>
                             </nav>

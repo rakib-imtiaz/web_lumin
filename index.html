@@ -35,6 +35,231 @@
     <!-- Add Leaflet CSS in head -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <style>
+        /* Enhanced Animation Classes */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                transform: rotate(-10deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: rotate(0);
+                opacity: 1;
+            }
+        }
+
+        /* Apply animations to elements */
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .animate-scale {
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+
+        .animate-rotate {
+            animation: rotateIn 0.5s ease-out forwards;
+        }
+
+        /* Stagger delays for multiple elements */
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+
+        .delay-400 {
+            animation-delay: 400ms;
+        }
+
+        .delay-500 {
+            animation-delay: 500ms;
+        }
+
+        /* Enhanced hover effects */
+        .hover-float:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        /* Add these classes to your existing elements */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Enhanced button animations */
+        .button-animate {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .button-animate::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent);
+            transition: 0.5s;
+        }
+
+        .button-animate:hover::after {
+            left: 100%;
+        }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal-right {
+            transform: translateX(50px);
+        }
+
+        .reveal-up {
+            transform: translateY(50px);
+        }
+
+        /* Icon pulse animation */
+        .icon-pulse {
+            animation: iconPulse 2s infinite;
+        }
+
+        @keyframes iconPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-white">
@@ -43,30 +268,35 @@
 
     <main class="pt-[88px] xl:pt-[112px] relative z-1">
         <!-- Main Content Sections -->
-        <section class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#008080] to-[#006666] overflow-hidden">
+        <section
+            class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#008080] to-[#006666] overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src="assets/images/banner.png" alt="Technology Background" 
-                     class="w-full h-full object-cover opacity-20">
+                <img src="assets/images/banner.png" alt="Technology Background"
+                    class="w-full h-full object-cover opacity-20">
             </div>
-            
+
             <!-- Hero Content -->
             <div class="container mx-auto px-4 relative z-10">
                 <div class="relative z-10 max-w-4xl mx-auto text-center py-12 md:py-20">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight animate-fadeIn">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight animate-slide-left">
                         Innovative Software Solutions for Your Digital Success
                     </h1>
-                    <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fadeInUp delay-200">
-                        We specialize in custom programming solutions and digital services to help your business thrive in the digital age.
+                    <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-slide-right delay-200">
+                        We specialize in custom programming solutions and digital services to help your business thrive
+                        in the digital age.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fadeInUp delay-300">
-                        <a href="#contact" class="w-full sm:w-auto bg-white text-[#008080] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fadeInUp delay-400">
+                        <a href="#contact"
+                            class="w-full sm:w-auto bg-white text-[#008080] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2">
                             Get Started
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </a>
-                        <a href="#services" class="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-[#008080] px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+                        <a href="#services"
+                            class="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-[#008080] px-8 py-4 rounded-lg font-semibold transition-all duration-300">
                             Our Services
                         </a>
                     </div>
@@ -80,44 +310,50 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-[#008080] mb-8 text-center">
                     Why Choose Weblumin
                 </h2>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     <!-- Technical Excellence Card -->
-                    <div class="feature-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div
+                        class="feature-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 reveal reveal-up">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="text-[#008080]">
-                                <i class="fas fa-brain text-3xl md:text-4xl"></i>
+                                <i class="fas fa-brain text-3xl md:text-4xl icon-pulse"></i>
                             </div>
                             <h3 class="text-xl font-bold text-[#008080]">Technical Excellence</h3>
                         </div>
                         <p class="text-gray-600">
-                            Expert developers creating sophisticated, scalable solutions using cutting-edge technologies.
+                            Expert developers creating sophisticated, scalable solutions using cutting-edge
+                            technologies.
                         </p>
                     </div>
 
                     <!-- Innovation Card -->
-                    <div class="feature-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div
+                        class="feature-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 reveal reveal-up">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="text-[#008080]">
-                                <i class="fas fa-lightbulb text-3xl md:text-4xl"></i>
+                                <i class="fas fa-lightbulb text-3xl md:text-4xl icon-pulse"></i>
                             </div>
                             <h3 class="text-xl font-bold text-[#008080]">Innovative Solutions</h3>
                         </div>
                         <p class="text-gray-600">
-                            We don't just follow trends – we create them. Our innovative approach ensures your business stays ahead.
+                            We don't just follow trends – we create them. Our innovative approach ensures your business
+                            stays ahead.
                         </p>
                     </div>
 
                     <!-- Customer Focus Card -->
-                    <div class="feature-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div
+                        class="feature-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 reveal reveal-up">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="text-[#008080]">
-                                <i class="fas fa-users text-3xl md:text-4xl"></i>
+                                <i class="fas fa-users text-3xl md:text-4xl icon-pulse"></i>
                             </div>
                             <h3 class="text-xl font-bold text-[#008080]">Customer Focus</h3>
                         </div>
                         <p class="text-gray-600">
-                            Your success is our priority. We deliver personalized solutions tailored to your specific needs.
+                            Your success is our priority. We deliver personalized solutions tailored to your specific
+                            needs.
                         </p>
                     </div>
                 </div>
@@ -125,9 +361,11 @@
                 <!-- Summary text - Mobile optimized -->
                 <div class="text-center mt-12">
                     <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed px-4">
-                        We combine cutting-edge technology with exceptional expertise, delivering superior software solutions that exceed expectations.
+                        We combine cutting-edge technology with exceptional expertise, delivering superior software
+                        solutions that exceed expectations.
                     </p>
-                    <a href="/contact" class="inline-block mt-8 px-6 py-3 bg-[#008080] text-white font-semibold rounded-lg hover:bg-[#006666] transition-colors duration-300">
+                    <a href="/contact"
+                        class="inline-block mt-8 px-6 py-3 bg-[#008080] text-white font-semibold rounded-lg hover:bg-[#006666] transition-colors duration-300">
                         Start Your Project
                     </a>
                 </div>
@@ -149,8 +387,10 @@
                 <!-- Services Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <!-- Programming Projects Card -->
-                    <div class="group relative overflow-hidden rounded-xl h-[300px] md:h-[400px]">
-                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 z-10"></div>
+                    <div
+                        class="group relative overflow-hidden rounded-xl h-[300px] md:h-[400px] hover-scale reveal reveal-left">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 z-10">
+                        </div>
                         <img src="assets/images/programming_projects.png" alt="Programming Projects"
                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-end">
@@ -164,15 +404,18 @@
                                 class="inline-flex items-center text-[#00B5B5] hover:text-white transition-colors">
                                 <span class="font-medium">Learn More</span>
                                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </a>
                         </div>
                     </div>
 
                     <!-- Digital Marketing Card -->
-                    <div class="group relative overflow-hidden rounded-xl h-[300px] md:h-[400px]">
-                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 z-10"></div>
+                    <div
+                        class="group relative overflow-hidden rounded-xl h-[300px] md:h-[400px] hover-scale reveal reveal-left">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 z-10">
+                        </div>
                         <img src="assets/images/digital_marketing.png" alt="Digital Marketing"
                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-end">
@@ -186,7 +429,8 @@
                                 class="inline-flex items-center text-[#00B5B5] hover:text-white transition-colors">
                                 <span class="font-medium">Learn More</span>
                                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </a>
                         </div>
@@ -255,66 +499,84 @@
                 <!-- Resource Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1 - Web Development -->
-                    <div class="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl bg-[#008080] p-8">
+                    <div
+                        class="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl bg-[#008080] p-8 animate-float hover-scale">
                         <div class="flex flex-col h-full">
                             <div class="mb-6 transform group-hover:-translate-y-2 transition-transform duration-500">
                                 <i class="fas fa-laptop-code text-6xl text-white"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-4 transform group-hover:translate-y-0 transition-transform duration-500">
+                            <h3
+                                class="text-2xl font-bold text-white mb-4 transform group-hover:translate-y-0 transition-transform duration-500">
                                 Modern Web Development
                             </h3>
-                            <p class="text-white/90 mb-6 flex-grow transform group-hover:translate-y-0 transition-transform duration-500">
-                                Master the latest web technologies and frameworks. Learn about responsive design, progressive web apps, and modern development practices.
+                            <p
+                                class="text-white/90 mb-6 flex-grow transform group-hover:translate-y-0 transition-transform duration-500">
+                                Master the latest web technologies and frameworks. Learn about responsive design,
+                                progressive web apps, and modern development practices.
                             </p>
-                            <a href="/resources/web-development" 
-                               class="inline-flex items-center text-white group-hover:font-bold transition-all duration-300">
+                            <a href="/resources/web-development"
+                                class="inline-flex items-center text-white group-hover:font-bold transition-all duration-300">
                                 <span>Read More</span>
-                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </a>
                         </div>
                     </div>
 
                     <!-- Card 2 - Digital Marketing -->
-                    <div class="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl bg-[#008080] p-8">
+                    <div
+                        class="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl bg-[#008080] p-8 animate-float hover-scale">
                         <div class="flex flex-col h-full">
                             <div class="mb-6 transform group-hover:-translate-y-2 transition-transform duration-500">
                                 <i class="fas fa-chart-line text-6xl text-white"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-4 transform group-hover:translate-y-0 transition-transform duration-500">
+                            <h3
+                                class="text-2xl font-bold text-white mb-4 transform group-hover:translate-y-0 transition-transform duration-500">
                                 Digital Marketing Insights
                             </h3>
-                            <p class="text-white/90 mb-6 flex-grow transform group-hover:translate-y-0 transition-transform duration-500">
-                                Discover effective strategies for SEO, content marketing, and social media. Learn how to boost your online presence and reach.
+                            <p
+                                class="text-white/90 mb-6 flex-grow transform group-hover:translate-y-0 transition-transform duration-500">
+                                Discover effective strategies for SEO, content marketing, and social media. Learn how to
+                                boost your online presence and reach.
                             </p>
-                            <a href="/resources/digital-marketing" 
-                               class="inline-flex items-center text-white group-hover:font-bold transition-all duration-300">
+                            <a href="/resources/digital-marketing"
+                                class="inline-flex items-center text-white group-hover:font-bold transition-all duration-300">
                                 <span>Read More</span>
-                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </a>
                         </div>
                     </div>
 
                     <!-- Card 3 - Tech Innovation -->
-                    <div class="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl bg-[#008080] p-8">
+                    <div
+                        class="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl bg-[#008080] p-8 animate-float hover-scale">
                         <div class="flex flex-col h-full">
                             <div class="mb-6 transform group-hover:-translate-y-2 transition-transform duration-500">
                                 <i class="fas fa-microchip text-6xl text-white"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-4 transform group-hover:translate-y-0 transition-transform duration-500">
+                            <h3
+                                class="text-2xl font-bold text-white mb-4 transform group-hover:translate-y-0 transition-transform duration-500">
                                 Tech Innovation Guide
                             </h3>
-                            <p class="text-white/90 mb-6 flex-grow transform group-hover:translate-y-0 transition-transform duration-500">
-                                Stay ahead with insights on AI, cloud computing, and emerging technologies. Explore the future of digital transformation.
+                            <p
+                                class="text-white/90 mb-6 flex-grow transform group-hover:translate-y-0 transition-transform duration-500">
+                                Stay ahead with insights on AI, cloud computing, and emerging technologies. Explore the
+                                future of digital transformation.
                             </p>
-                            <a href="/resources/tech-innovation" 
-                               class="inline-flex items-center text-white group-hover:font-bold transition-all duration-300">
+                            <a href="/resources/tech-innovation"
+                                class="inline-flex items-center text-white group-hover:font-bold transition-all duration-300">
                                 <span>Read More</span>
-                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </a>
                         </div>
@@ -456,6 +718,35 @@
                 </div>
             `);
         });
+
+        // Scroll reveal functionality
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            reveals.forEach((element) => {
+                var windowHeight = window.innerHeight;
+                var elementTop = element.getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal(); // Initial check
+
+        // Add hover animation for cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function (e) {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function (e) {
+                this.style.transform = 'translateY(0)';
+            });
+        });
     </script>
 
     <style>
@@ -555,7 +846,8 @@
         /* Update the responsive styles */
         @media (max-width: 1280px) {
             main {
-                padding-top: 88px; /* Match header height for non-xl screens */
+                padding-top: 88px;
+                /* Match header height for non-xl screens */
             }
 
             .min-h-screen {
@@ -565,7 +857,8 @@
 
         @media (min-width: 1280px) {
             main {
-                padding-top: 112px; /* Match header height for xl screens */
+                padding-top: 112px;
+                /* Match header height for xl screens */
             }
 
             .min-h-screen {
@@ -575,12 +868,14 @@
 
         /* Ensure header height matches padding */
         #main-header {
-            height: 88px; /* Default height */
+            height: 88px;
+            /* Default height */
         }
 
         @media (min-width: 1280px) {
             #main-header {
-                height: 112px; /* XL screen height */
+                height: 112px;
+                /* XL screen height */
             }
         }
 
@@ -605,6 +900,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -615,6 +911,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -626,7 +923,7 @@
             .group:active .group-hover\:translate-x-2 {
                 transform: translateX(0.5rem);
             }
-            
+
             .group:active .group-hover\:-translate-y-2 {
                 transform: translateY(-0.5rem);
             }
