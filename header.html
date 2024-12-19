@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Weblumin - Software Development</title>
     <!-- Include Font Awesome for icons (Ensure this is linked in your project) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-8uxVFl93HhK1XWwW6eUP0X+cZe6P6a1B2DCxY/hMeowGR3ekz/h+VDrqMEqH1K2p" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-8uxVFl93HhK1XWwW6eUP0X+cZe6P6a1B2DCxY/hMeowGR3ekz/h+VDrqMEqH1K2p" crossorigin="anonymous">
     <style>
         :root {
             /* Brand Colors */
@@ -12,12 +14,12 @@
             --sequoia-dark-green: #008080;
             --sequoia-black: #000000;
             --sequoia-white: #FFFFFF;
-            
+
             /* Text Colors */
             --text-primary: #1A1A1A;
             --text-secondary: #666666;
             --text-light: #FFFFFF;
-            
+
             /* Background Colors */
             --bg-dark: rgba(0, 0, 0, 0.9);
             --bg-light: rgba(255, 255, 255, 0.95);
@@ -90,9 +92,10 @@
             right: 0;
             top: 0;
             height: 100%;
-            width: 288px; /* 72 * 4px */
+            width: 288px;
+            /* 72 * 4px */
             background-color: var(--sequoia-black);
-            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
             transform: translateX(100%);
             transition: transform 0.3s;
         }
@@ -106,7 +109,7 @@
             left: 0;
             width: 20rem;
             background-color: var(--bg-light);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             transform: translateY(-10px);
             transition: visibility 0s linear 0.3s, opacity 0.3s, transform 0.3s;
             z-index: 100;
@@ -138,15 +141,18 @@
             }
 
             .h-xl-10 {
-                height: 2.5rem; /* 10 */
+                height: 2.5rem;
+                /* 10 */
             }
 
             .h-xl-20 {
-                height: 5rem; /* 20 */
+                height: 5rem;
+                /* 20 */
             }
 
             .w-xl-48 {
-                width: 12rem; /* 48 */
+                width: 12rem;
+                /* 48 */
             }
         }
 
@@ -154,8 +160,10 @@
         .custom-scrollbar {
             scrollbar-width: thin;
             scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-            padding-bottom: 2rem; /* Additional padding */
+            -webkit-overflow-scrolling: touch;
+            /* Smooth scrolling on iOS */
+            padding-bottom: 2rem;
+            /* Additional padding */
         }
 
         .custom-scrollbar::-webkit-scrollbar {
@@ -335,11 +343,11 @@
             opacity: 1;
         }
 
-        #mobile-menu.active > div:first-child {
+        #mobile-menu.active>div:first-child {
             opacity: 1;
         }
 
-        #mobile-menu.active > div:last-child {
+        #mobile-menu.active>div:last-child {
             transform: translateX(0);
         }
 
@@ -359,7 +367,7 @@
         /* Add these styles to ensure solid background */
         #mobile-menu .mobile-menu-panel,
         #mobile-menu nav {
-            background-color: #0a1f44 
+            background-color: #008080 #008080
         }
 
         /* Override any potential transparency */
@@ -407,27 +415,197 @@
 
         /* Add padding to the bottom of the scrollable content */
         .mobile-menu-panel nav {
-            padding-bottom: 6rem; /* Adds significant space at the bottom */
+            padding-bottom: 6rem;
+            /* Adds significant space at the bottom */
+        }
+
+        /* Hamburger button styles */
+        .hamburger-line {
+            background-color: #008080;
+        }
+
+        /* Mobile Menu Panel */
+        .mobile-menu-panel {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Override any existing dark backgrounds */
+        #mobile-menu .mobile-menu-panel,
+        #mobile-menu nav,
+        .bg-[#004D3D],
+        .bg-[#008080] {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* Ensure mobile menu text is visible */
+        #mobile-menu a,
+        #mobile-menu button {
+            color: #008080;
+        }
+
+        /* Mobile menu hover states */
+        #mobile-menu a:hover,
+        #mobile-menu button:hover {
+            font-weight: bold;
+        }
+
+        /* Mobile Menu Panel - More specific selectors */
+        .mobile-menu-panel,
+        #mobile-menu .mobile-menu-panel,
+        #mobile-menu-container .mobile-menu-panel {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            backdrop-filter: blur(8px) !important;
+        }
+
+        /* Override all possible background colors */
+        .mobile-menu-panel,
+        .mobile-menu-panel nav,
+        .mobile-menu-panel div,
+        #mobile-menu [class*="bg-"],
+        .bg-[#004D3D],
+        .bg-[#008080],
+        [class*="bg-navy"],
+        [class*="bg-dark"] {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* Ensure text and icons are visible */
+        .mobile-menu-panel *,
+        #mobile-menu * {
+            color: #008080 !important;
+        }
+
+        /* Hover states */
+        .mobile-menu-panel a:hover,
+        .mobile-menu-panel button:hover {
+            font-weight: bold !important;
+        }
+
+        /* Mobile Menu Panel - Blue background */
+        .mobile-menu-panel,
+        #mobile-menu .mobile-menu-panel,
+        #mobile-menu-container .mobile-menu-panel {
+            background-color: #008080 !important;
+            /* backdrop-filter: blur(8px) !important; */
+        }
+
+        /* Override all possible background colors */
+        .mobile-menu-panel,
+        .mobile-menu-panel nav,
+        .mobile-menu-panel div,
+        #mobile-menu [class*="bg-"],
+        .bg-[#004D3D],
+        .bg-[#008080],
+        [class*="bg-navy"],
+        [class*="bg-dark"] {
+            background-color: #008080 !important;
+        }
+
+        /* Make text white */
+        .mobile-menu-panel *,
+        #mobile-menu * {
+            color: white !important;
+        }
+
+        /* Hover states */
+        .mobile-menu-panel a:hover,
+        .mobile-menu-panel button:hover {
+            font-weight: bold !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* Close button color */
+        #mobile-menu-close {
+            color: white !important;
+        }
+
+        /* Mobile Menu Panel - Solid blue background */
+        .mobile-menu-panel,
+        #mobile-menu .mobile-menu-panel,
+        #mobile-menu-container .mobile-menu-panel {
+            background-color: #008080 !important;
+        }
+
+        /* Override all possible background colors to solid */
+        .mobile-menu-panel,
+        .mobile-menu-panel nav,
+        .mobile-menu-panel div,
+        #mobile-menu [class*="bg-"],
+        .bg-[#004D3D],
+        .bg-[#0a1f44],
+        [class*="bg-navy"],
+        [class*="bg-dark"] {
+            background-color: #008080 !important;
+        }
+
+        /* White text */
+        .mobile-menu-panel *,
+        #mobile-menu * {
+            color: white !important;
+        }
+
+        /* Hover states */
+        .mobile-menu-panel a:hover,
+        .mobile-menu-panel button:hover {
+            font-weight: bold !important;
+        }
+
+        /* Close button color */
+        #mobile-menu-close {
+            color: white !important;
+        }
+
+        /* Mobile Menu Panel - Solid blue background */
+        .mobile-menu-panel,
+        #mobile-menu .mobile-menu-panel,
+        #mobile-menu-container .mobile-menu-panel {
+            background-color: #008080 !important;
+        }
+
+        /* Main navigation items - Blue color */
+        .main-nav a,
+        .main-nav .nav-link,
+        .main-nav span {
+            color: #008080 !important;
+        }
+
+        /* Hover states for main nav */
+        .main-nav a:hover,
+        .main-nav .nav-link:hover {
+            font-weight: bold;
+        }
+
+        /* Keep mobile menu text white */
+        .mobile-menu-panel *,
+        #mobile-menu * {
+            color: white !important;
+        }
+
+        /* Keep dropdown chevron blue */
+        .main-nav .fa-chevron-down {
+            color: #008080 !important;
         }
     </style>
 </head>
+
 <body>
     <header class="fixed w-full top-0 z-50 transition-transform duration-300" id="main-header">
         <!-- Top Bar -->
-        <div class="bg-[#0A1F44] border-b border-white/10">
+        <div class="bg-white/80 backdrop-blur-sm border-b border-[#008080]/20">
             <div class="container mx-auto px-4">
                 <div class="flex justify-end items-center h-8 h-xl-10">
                     <!-- Utility Navigation -->
                     <div class="utility-nav">
-                        <button class="text-white hover:text-[#00B5B5] flex items-center transition-all">
+                        <button class="text-[#008080] hover:font-bold flex items-center transition-all">
                             <i class="fas fa-search mr-2"></i>
                             <span class="text-sm font-medium tracking-wide">SEARCH</span>
                         </button>
-                        <a href="#contact" class="text-white hover:text-[#00B5B5] flex items-center transition-all">
+                        <a href="#contact" class="text-[#008080] hover:font-bold flex items-center transition-all">
                             <i class="fas fa-envelope mr-2"></i>
                             <span class="text-sm font-medium tracking-wide">CONTACT</span>
                         </a>
-                        <a href="/login" class="text-white hover:text-[#00B5B5] flex items-center transition-all">
+                        <a href="/login" class="text-[#008080] hover:font-bold flex items-center transition-all">
                             <i class="fas fa-user mr-2"></i>
                             <span class="text-sm font-medium tracking-wide">CLIENT LOGIN</span>
                         </a>
@@ -437,7 +615,7 @@
         </div>
 
         <!-- Main Navigation -->
-        <nav class="bg-[#0A1F44] backdrop-blur-md shadow-lg">
+        <nav class="bg-white/80 backdrop-blur-sm shadow-lg">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center h-16 h-xl-20">
                     <!-- Logo -->
@@ -449,7 +627,8 @@
                     <div class="main-nav">
                         <!-- Services Dropdown -->
                         <div class="group relative">
-                            <a href="#" class="nav-link py-8 flex items-center space-x-2">
+                            <a href="#"
+                                class="nav-link py-8 flex items-center space-x-2 text-[#008080] hover:font-bold">
                                 <span>SERVICES</span>
                                 <i class="fas fa-chevron-down"></i>
                             </a>
@@ -474,27 +653,27 @@
                         </div>
 
                         <!-- Portfolio -->
-                        <a href="/portfolio" class="nav-link py-8">
+                        <a href="/portfolio" class="nav-link py-8 text-[#008080] hover:font-bold">
                             PORTFOLIO
                         </a>
 
                         <!-- About Us -->
-                        <a href="/about" class="nav-link py-8">
+                        <a href="/about" class="nav-link py-8 text-[#008080] hover:font-bold">
                             ABOUT US
                         </a>
 
                         <!-- Contact -->
-                        <a href="/contact" class="nav-link py-8">
+                        <a href="/contact" class="nav-link py-8 text-[#008080] hover:font-bold">
                             CONTACT
                         </a>
                     </div>
 
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-button" class="xl:hidden flex items-center p-2">
-                        <div class="w-6 h-6 flex flex-col justify-between transition-all duration-300">
-                            <span class="w-full h-0.5 bg-white transition-all duration-300"></span>
-                            <span class="w-full h-0.5 bg-white transition-all duration-300"></span>
-                            <span class="w-full h-0.5 bg-white transition-all duration-300"></span>
+                        <div class="hamburger">
+                            <span class="hamburger-line bg-[#008080]"></span>
+                            <span class="hamburger-line bg-[#008080]"></span>
+                            <span class="hamburger-line bg-[#008080]"></span>
                         </div>
                     </button>
                 </div>
@@ -503,9 +682,9 @@
                 <div id="mobile-menu" class="fixed inset-0 invisible opacity-0 transition-all duration-300">
                     <!-- Semi-transparent backdrop -->
                     <div class="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
-                    
-                    <!-- Side Panel - Full Navy Blue -->
-                    <div class="absolute right-0 top-0 h-screen w-3/4 transform translate-x-full transition-transform duration-300 flex flex-col bg-[#0A1F44]">
+                    <!-- Side Panel - Semi-transparent Navy Blue -->
+                    <div
+                        class="absolute right-0 top-0 h-screen w-3/4 transform translate-x-full transition-transform duration-300 flex flex-col bg-[#008080]">
                         <!-- Header -->
                         <div class="flex justify-end p-4 border-b border-white/10">
                             <button id="mobile-menu-close" class="text-white hover:text-[#00E5B0] p-2">
@@ -518,11 +697,13 @@
                             <nav class="py-2">
                                 <!-- Quick Links -->
                                 <div class="px-5 py-2 space-y-3">
-                                    <a href="/pages/about_us/careers.html" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                    <a href="/pages/about_us/careers.html"
+                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
                                         <i class="fas fa-briefcase w-6 text-base"></i>
                                         <span class="text-base font-medium ml-2">CAREERS</span>
                                     </a>
-                                    <a href="/login" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                    <a href="/login"
+                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
                                         <i class="fas fa-user w-6 text-base"></i>
                                         <span class="text-base font-medium ml-2">EMPLOYEE LOGIN</span>
                                     </a>
@@ -539,27 +720,33 @@
                                             </span>
                                         </div>
                                         <div class="mobile-submenu">
-                                            <a href="/pages/security_services/guard_services.html" class="flex items-center">
+                                            <a href="/pages/security_services/guard_services.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-shield-alt w-6 text-sm"></i>
                                                 <span>Guard Services</span>
                                             </a>
-                                            <a href="/pages/security_services/mobile_patrol.html" class="flex items-center">
+                                            <a href="/pages/security_services/mobile_patrol.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-car w-6 text-sm"></i>
                                                 <span>Mobile Patrol</span>
                                             </a>
-                                            <a href="/pages/security_services/loss_prevention.html" class="flex items-center">
+                                            <a href="/pages/security_services/loss_prevention.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-user-shield w-6 text-sm"></i>
                                                 <span>Loss Prevention</span>
                                             </a>
-                                            <a href="/pages/security_services/event_security_services.html" class="flex items-center">
+                                            <a href="/pages/security_services/event_security_services.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-calendar-check w-6 text-sm"></i>
                                                 <span>Event Security Services</span>
                                             </a>
-                                            <a href="/pages/security_services/operations_centers.html" class="flex items-center">
+                                            <a href="/pages/security_services/operations_centers.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-building w-6 text-sm"></i>
                                                 <span>Operations Centres</span>
                                             </a>
-                                            <a href="/pages/security_services/investigations_risk_management.html" class="flex items-center">
+                                            <a href="/pages/security_services/investigations_risk_management.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-search w-6 text-sm"></i>
                                                 <span>Investigations & Risk Management</span>
                                             </a>
@@ -591,11 +778,13 @@
                                                 <i class="fas fa-hospital w-6 text-sm"></i>
                                                 <span>Healthcare</span>
                                             </a>
-                                            <a href="/pages/Industries/office_and_commercial.html" class="flex items-center">
+                                            <a href="/pages/Industries/office_and_commercial.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-building w-6 text-sm"></i>
                                                 <span>Office & Commercial</span>
                                             </a>
-                                            <a href="/pages/Industries/retail_and_shopping_malls.html" class="flex items-center">
+                                            <a href="/pages/Industries/retail_and_shopping_malls.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-shopping-cart w-6 text-sm"></i>
                                                 <span>Retail & Shopping Malls</span>
                                             </a>
@@ -607,15 +796,18 @@
                                                 <i class="fas fa-plane w-6 text-sm"></i>
                                                 <span>Aviation</span>
                                             </a>
-                                            <a href="/pages/Industries/industrial_security.html" class="flex items-center">
+                                            <a href="/pages/Industries/industrial_security.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-industry w-6 text-sm"></i>
                                                 <span>Industrial Security</span>
                                             </a>
-                                            <a href="/pages/Industries/government_and_infrastructure.html" class="flex items-center">
+                                            <a href="/pages/Industries/government_and_infrastructure.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-landmark w-6 text-sm"></i>
                                                 <span>Government & Infrastructure</span>
                                             </a>
-                                            <a href="/pages/Industries/warehous_and_distribution.html" class="flex items-center">
+                                            <a href="/pages/Industries/warehous_and_distribution.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-warehouse w-6 text-sm"></i>
                                                 <span>Warehouse & Distribution</span>
                                             </a>
@@ -623,7 +815,8 @@
                                     </div>
 
                                     <!-- Locations -->
-                                    <a href="/pages/locations/location.html" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                    <a href="/pages/locations/location.html"
+                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
                                         <i class="fas fa-map-marker-alt w-6 text-base"></i>
                                         <span class="text-base font-medium ml-2">LOCATIONS</span>
                                     </a>
@@ -641,7 +834,8 @@
                                                 <i class="fas fa-book-open w-6 text-sm"></i>
                                                 <span>Why Sequoia</span>
                                             </a>
-                                            <a href="/pages/about_us/leadership_and_people.html" class="flex items-center">
+                                            <a href="/pages/about_us/leadership_and_people.html"
+                                                class="flex items-center">
                                                 <i class="fas fa-users w-6 text-sm"></i>
                                                 <span>Leadership & People</span>
                                             </a>
@@ -661,15 +855,18 @@
                                     </div>
 
                                     <!-- Additional Links -->
-                                    <a href="/pages/blog/blogs.html" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                    <a href="/pages/blog/blogs.html"
+                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
                                         <i class="fas fa-blog w-6 text-base"></i>
                                         <span class="text-base font-medium ml-2">BLOG</span>
                                     </a>
-                                    <a href="/pages/podcast/podcast.html" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                    <a href="/pages/podcast/podcast.html"
+                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
                                         <i class="fas fa-microphone w-6 text-base"></i>
                                         <span class="text-base font-medium ml-2">PODCAST</span>
                                     </a>
-                                    <a href="/pages/resources" class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
+                                    <a href="/pages/resources"
+                                        class="flex items-center text-white hover:text-[#00E5B0] py-2 transition-colors">
                                         <i class="fas fa-book w-6 text-base"></i>
                                         <span class="text-base font-medium ml-2">RESOURCES</span>
                                     </a>
@@ -684,7 +881,7 @@
 
     <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Mobile menu elements
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -696,11 +893,11 @@
                 mobileMenu.classList.toggle('invisible');
                 mobileMenu.classList.toggle('opacity-0');
                 document.body.classList.toggle('overflow-hidden');
-                
+
                 const sidePanel = mobileMenu.querySelector('div:last-child');
                 if (sidePanel) {
-                    sidePanel.style.transform = mobileMenu.classList.contains('invisible') 
-                        ? 'translateX(100%)' 
+                    sidePanel.style.transform = mobileMenu.classList.contains('invisible')
+                        ? 'translateX(100%)'
                         : 'translateX(0)';
                 }
             }
@@ -720,4 +917,5 @@
         });
     </script>
 </body>
+
 </html>
