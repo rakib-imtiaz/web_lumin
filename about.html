@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Weblumin</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <!-- Web Components -->
+    <script src="components/web-header.js" type="module"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'weblumin': {
+                            'primary': '#00B5B5',
+                            'secondary': '#008080',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animation classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline styles */
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #E5E7EB;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 16px;
+            height: 16px;
+            background: #00B5B5;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        /* Counter animation */
+        .counter-value {
+            transition: transform 0.3s ease-out;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <web-header></web-header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Transforming Ideas into Digital Reality
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        At Weblumin, we're passionate about creating innovative digital solutions
+                        that help businesses thrive in the modern world.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="bg-weblumin-primary hover:bg-weblumin-secondary text-white px-6 py-3 rounded-lg 
+                                  transition duration-300 inline-flex items-center gap-2">
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="fade-in-up delay-200">
+                    <img src="assets/images/about-hero.svg" alt="About Weblumin"
+                        class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    These principles guide everything we do and help us deliver exceptional results for our clients.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Innovation -->
+                <div
+                    class="fade-in-up delay-100 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Innovation</h3>
+                    <p class="text-gray-600">
+                        We embrace new technologies and creative solutions to solve complex challenges.
+                    </p>
+                </div>
+
+                <!-- Excellence -->
+                <div
+                    class="fade-in-up delay-200 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-star text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Excellence</h3>
+                    <p class="text-gray-600">
+                        We strive for excellence in every project and deliver outstanding results.
+                    </p>
+                </div>
+
+                <!-- Collaboration -->
+                <div
+                    class="fade-in-up delay-300 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Collaboration</h3>
+                    <p class="text-gray-600">
+                        We work closely with our clients to ensure their vision becomes reality.
+                    </p>
+                </div>
+
+                <!-- Integrity -->
+                <div
+                    class="fade-in-up delay-400 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Integrity</h3>
+                    <p class="text-gray-600">
+                        We maintain the highest standards of honesty and transparency.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Projects Completed -->
+                <div class="fade-in-up text-center">
+                    <div class="text-4xl font-bold text-weblumin-primary mb-2">
+                        <span class="counter-value" data-target="200">0</span>+
+                    </div>
+                    <p class="text-gray-600">Projects Completed</p>
+                </div>
+
+                <!-- Happy Clients -->
+                <div class="fade-in-up delay-100 text-center">
+                    <div class="text-4xl font-bold text-weblumin-primary mb-2">
+                        <span class="counter-value" data-target="150">0</span>+
+                    </div>
+                    <p class="text-gray-600">Happy Clients</p>
+                </div>
+
+                <!-- Team Members -->
+                <div class="fade-in-up delay-200 text-center">
+                    <div class="text-4xl font-bold text-weblumin-primary mb-2">
+                        <span class="counter-value" data-target="20">0</span>+
+                    </div>
+                    <p class="text-gray-600">Team Members</p>
+                </div>
+
+                <!-- Years Experience -->
+                <div class="fade-in-up delay-300 text-center">
+                    <div class="text-4xl font-bold text-weblumin-primary mb-2">
+                        <span class="counter-value" data-target="5">0</span>+
+                    </div>
+                    <p class="text-gray-600">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+                <p class="text-lg text-gray-600">
+                    The milestones that have shaped our success story.
+                </p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- Timeline items -->
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-dot"></div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="text-right md:pr-12">
+                            <h3 class="text-xl font-semibold text-gray-900">2019</h3>
+                            <p class="text-gray-600">Company Founded</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-gray-600">
+                                Weblumin was established with a vision to transform digital landscapes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-up delay-100">
+                    <div class="timeline-dot"></div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="text-right md:pr-12">
+                            <h3 class="text-xl font-semibold text-gray-900">2020</h3>
+                            <p class="text-gray-600">First Major Project</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-gray-600">
+                                Successfully delivered our first enterprise-level web application.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-up delay-200">
+                    <div class="timeline-dot"></div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="text-right md:pr-12">
+                            <h3 class="text-xl font-semibold text-gray-900">2021</h3>
+                            <p class="text-gray-600">Team Expansion</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-gray-600">
+                                Grew our team and expanded our service offerings.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-up delay-300">
+                    <div class="timeline-dot"></div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="text-right md:pr-12">
+                            <h3 class="text-xl font-semibold text-gray-900">2023</h3>
+                            <p class="text-gray-600">Global Reach</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-gray-600">
+                                Extended our services to international clients across multiple continents.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <link rel="import" href="footer.html">
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter-value');
+        const speed = 200;
+
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const increment = target / speed;
+
+            const updateCount = () => {
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCount();
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+    </script>
+</body>
+
+</html>

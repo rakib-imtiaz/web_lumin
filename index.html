@@ -8,7 +8,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom Styles -->
@@ -259,12 +259,27 @@
                 transform: scale(1);
             }
         }
+
+        /* Ensure main content doesn't create a new stacking context that's too high */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Any other content that might be creating stacking contexts */
+        .section {
+            position: relative;
+            z-index: 1;
+        }
     </style>
+
+    <!-- Web Components -->
+    <script src="components/web-header.js" type="module"></script>
 </head>
 
 <body class="bg-white">
-    <!-- Header will be loaded here -->
-    <div id="header-container"></div>
+    <!-- Use the web component -->
+    <web-header></web-header>
 
     <main class="pt-[88px] xl:pt-[112px] relative z-1">
         <!-- Main Content Sections -->
@@ -601,7 +616,7 @@
                 document.getElementById(containerId).innerHTML = html;
 
                 // If this is the header, initialize the mobile menu after loading
-                if (containerId === 'header-container') {
+                if (containerId === 'main-header') {
                     initializeMobileMenu();
                 }
             } catch (error) {
@@ -623,43 +638,29 @@
                     menu.classList.toggle('invisible', !show);
                     menu.classList.toggle('opacity-0', !show);
                     document.body.classList.toggle('overflow-hidden', show);
-
-                    // If closing, wait for animation to complete before hiding
-                    if (!show) {
-                        setTimeout(() => {
-                            if (!menu.classList.contains('active')) {
-                                menu.classList.add('invisible');
-                            }
-                        }, 300); // Match transition duration
-                    }
                 };
 
                 // Open menu
                 openButton.addEventListener('click', () => {
-                    console.log('Opening menu');
                     toggleMenu(true);
                 });
 
                 // Close menu
-                const closeMenu = () => {
-                    console.log('Closing menu');
+                closeButton.addEventListener('click', () => {
                     toggleMenu(false);
-                };
-
-                // Close button click
-                closeButton.addEventListener('click', closeMenu);
+                });
 
                 // Click outside to close
                 menu.addEventListener('click', (e) => {
                     if (e.target === menu) {
-                        closeMenu();
+                        toggleMenu(false);
                     }
                 });
 
                 // ESC key to close
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape' && menu.classList.contains('active')) {
-                        closeMenu();
+                        toggleMenu(false);
                     }
                 });
             }
@@ -668,9 +669,9 @@
         // Initialize after DOM loads
         document.addEventListener('DOMContentLoaded', () => {
             // Load header
-            loadComponent('header.html', 'header-container')
+            loadComponent('header.html', 'main-header')
                 .then(() => {
-                    console.log('Header loaded');
+                    console.log('Header loaded successfully');
                     initializeMobileMenu();
                 })
                 .catch(error => {

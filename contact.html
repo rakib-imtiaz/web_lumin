@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Weblumin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/header-component.js"></script>
+</head>
+
+<body class="bg-white">
+    <!-- Use the custom header component -->
+    <site-header></site-header>
+
+    <main class="pt-[88px] xl:pt-[112px]">
+        <!-- Contact Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-16 animate-fade-in">
+                        <h1 class="text-4xl md:text-5xl font-bold text-[#008080] mb-6">Get in Touch</h1>
+                        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                            Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as
+                            soon as possible.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Contact Form -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 animate-slide-up">
+                            <form id="contact-form" class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                    <input type="text" id="name" name="name" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#008080] focus:ring-1 focus:ring-[#008080] outline-none transition-colors">
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#008080] focus:ring-1 focus:ring-[#008080] outline-none transition-colors">
+                                </div>
+
+                                <div>
+                                    <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                    <input type="text" id="subject" name="subject" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#008080] focus:ring-1 focus:ring-[#008080] outline-none transition-colors">
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="5" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#008080] focus:ring-1 focus:ring-[#008080] outline-none transition-colors resize-none"></textarea>
+                                </div>
+
+                                <button type="submit"
+                                    class="w-full bg-[#008080] text-white font-semibold py-3 rounded-lg hover:bg-[#006666] transition-colors">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="space-y-8 animate-slide-up delay-200">
+                            <!-- Office Location -->
+                            <div class="flex items-start space-x-4">
+                                <div class="text-[#008080]">
+                                    <i class="fas fa-location-dot text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Office Location</h3>
+                                    <p class="text-gray-600">
+                                        123 Business Avenue<br>
+                                        Tech District<br>
+                                        City, State 12345
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Contact Details -->
+                            <div class="flex items-start space-x-4">
+                                <div class="text-[#008080]">
+                                    <i class="fas fa-envelope text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Contact Details</h3>
+                                    <p class="text-gray-600">
+                                        Email: info@weblumin.com<br>
+                                        Phone: (555) 123-4567
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Business Hours -->
+                            <div class="flex items-start space-x-4">
+                                <div class="text-[#008080]">
+                                    <i class="fas fa-clock text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Business Hours</h3>
+                                    <p class="text-gray-600">
+                                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                        Saturday - Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Social Media -->
+                            <div class="flex items-start space-x-4">
+                                <div class="text-[#008080]">
+                                    <i class="fas fa-share-nodes text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Follow Us</h3>
+                                    <div class="flex space-x-4">
+                                        <a href="#" class="text-gray-600 hover:text-[#008080] transition-colors">
+                                            <i class="fab fa-twitter text-2xl"></i>
+                                        </a>
+                                        <a href="#" class="text-gray-600 hover:text-[#008080] transition-colors">
+                                            <i class="fab fa-linkedin text-2xl"></i>
+                                        </a>
+                                        <a href="#" class="text-gray-600 hover:text-[#008080] transition-colors">
+                                            <i class="fab fa-instagram text-2xl"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
