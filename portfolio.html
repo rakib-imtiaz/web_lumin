@@ -5,32 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Weblumin</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <!-- Web Components -->
+    <script src="components/web-header.js" type="module"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'weblumin': {
+                            'primary': '#00B5B5',
+                            'secondary': '#008080',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
     <style>
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .animate-slide-up {
-            animation: slideUp 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .project-card:hover .project-overlay {
@@ -40,24 +58,23 @@
         .project-card:hover img {
             transform: scale(1.05);
         }
-
-        .delay-200 { animation-delay: 200ms; }
-        .delay-400 { animation-delay: 400ms; }
     </style>
 </head>
 
 <body class="bg-white">
-    <div id="header-container"></div>
+    <!-- Header -->
+    <web-header></web-header>
 
-    <main class="pt-[88px] xl:pt-[112px]">
+    <!-- Main Content -->
+    <main class="pt-32">
         <!-- Hero Section -->
-        <section class="relative py-12 md:py-20 bg-gradient-to-br from-[#008080] to-[#006666]">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center text-white">
-                    <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 animate-fade-in">
+        <section class="relative py-20 bg-gradient-to-br from-weblumin-primary to-weblumin-secondary">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center text-white">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in-up">
                         Our Portfolio
                     </h1>
-                    <p class="text-lg sm:text-xl md:text-2xl opacity-90 animate-fade-in delay-200 px-4">
+                    <p class="text-xl opacity-90 fade-in-up delay-200">
                         Showcasing Our Best Digital Solutions
                     </p>
                 </div>
@@ -65,19 +82,23 @@
         </section>
 
         <!-- Filter Buttons -->
-        <section class="py-8 md:py-12">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-wrap justify-center gap-4 animate-fade-in">
-                    <button class="px-6 py-2 rounded-full bg-[#008080] text-white hover:bg-[#006666] transition-colors">
+        <section class="py-12">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex flex-wrap justify-center gap-4 fade-in-up">
+                    <button data-filter="all"
+                        class="filter-btn px-6 py-2 rounded-full bg-weblumin-primary text-white hover:bg-weblumin-secondary transition-colors">
                         All
                     </button>
-                    <button class="px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
+                    <button data-filter="web"
+                        class="filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
                         Web Development
                     </button>
-                    <button class="px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
+                    <button data-filter="mobile"
+                        class="filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
                         Mobile Apps
                     </button>
-                    <button class="px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
+                    <button data-filter="ecommerce"
+                        class="filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
                         E-Commerce
                     </button>
                 </div>
@@ -85,19 +106,20 @@
         </section>
 
         <!-- Projects Grid -->
-        <section class="py-8 md:py-12">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <section class="py-12">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
                     <!-- Project Card 1 -->
-                    <div class="project-card group relative overflow-hidden rounded-xl animate-slide-up">
-                        <img src="assets/images/portfolio/project1.jpg" 
-                             alt="E-commerce Platform" 
-                             class="w-full h-[300px] object-cover transition-transform duration-500">
+                    <div class="project-card group relative overflow-hidden rounded-xl fade-in-up"
+                        data-category="ecommerce">
+                        <img src="assets/images/portfolio/project1.jpg" alt="E-commerce Platform"
+                            class="w-full h-[300px] object-cover transition-transform duration-500">
                         <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent 
                                     opacity-0 transition-opacity duration-300 p-6 flex flex-col justify-end">
                             <h3 class="text-xl font-bold text-white mb-2">E-commerce Platform</h3>
                             <p class="text-white/90 mb-4">Modern e-commerce solution with advanced features</p>
-                            <a href="#" class="inline-flex items-center text-[#00E5B0] hover:text-white transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-[#00E5B0] hover:text-white transition-colors">
                                 View Project
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
@@ -105,15 +127,16 @@
                     </div>
 
                     <!-- Project Card 2 -->
-                    <div class="project-card group relative overflow-hidden rounded-xl animate-slide-up delay-200">
-                        <img src="assets/images/portfolio/project2.jpg" 
-                             alt="Mobile Banking App" 
-                             class="w-full h-[300px] object-cover transition-transform duration-500">
+                    <div class="project-card group relative overflow-hidden rounded-xl fade-in-up"
+                        data-category="mobile">
+                        <img src="assets/images/portfolio/project2.jpg" alt="Mobile Banking App"
+                            class="w-full h-[300px] object-cover transition-transform duration-500">
                         <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent 
                                     opacity-0 transition-opacity duration-300 p-6 flex flex-col justify-end">
                             <h3 class="text-xl font-bold text-white mb-2">Mobile Banking App</h3>
                             <p class="text-white/90 mb-4">Secure and user-friendly mobile banking solution</p>
-                            <a href="#" class="inline-flex items-center text-[#00E5B0] hover:text-white transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-[#00E5B0] hover:text-white transition-colors">
                                 View Project
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
@@ -121,39 +144,36 @@
                     </div>
 
                     <!-- Project Card 3 -->
-                    <div class="project-card group relative overflow-hidden rounded-xl animate-slide-up delay-400">
-                        <img src="assets/images/portfolio/project3.jpg" 
-                             alt="Healthcare Platform" 
-                             class="w-full h-[300px] object-cover transition-transform duration-500">
+                    <div class="project-card group relative overflow-hidden rounded-xl fade-in-up" data-category="web">
+                        <img src="assets/images/portfolio/project3.jpg" alt="Healthcare Platform"
+                            class="w-full h-[300px] object-cover transition-transform duration-500">
                         <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent 
                                     opacity-0 transition-opacity duration-300 p-6 flex flex-col justify-end">
                             <h3 class="text-xl font-bold text-white mb-2">Healthcare Platform</h3>
                             <p class="text-white/90 mb-4">Digital healthcare management system</p>
-                            <a href="#" class="inline-flex items-center text-[#00E5B0] hover:text-white transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-[#00E5B0] hover:text-white transition-colors">
                                 View Project
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
-
-                    <!-- Additional Project Cards -->
-                    <!-- Copy and paste the project card structure above for more projects -->
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section class="py-12 md:py-20 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#008080] mb-6 animate-fade-in">
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <div class="fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-weblumin-primary mb-6">
                         Ready to Start Your Project?
                     </h2>
-                    <p class="text-gray-600 mb-8 animate-fade-in delay-200">
-                        Let's work together to bring your vision to life. Our team is ready to help you create something amazing.
+                    <p class="text-lg text-gray-600 mb-8">
+                        Let's work together to bring your vision to life.
                     </p>
-                    <a href="contact.html" 
-                       class="inline-block bg-[#008080] text-white px-8 py-3 rounded-lg hover:bg-[#006666] transition-colors animate-fade-in delay-400">
+                    <a href="contact.html" class="inline-block bg-weblumin-primary text-white px-8 py-3 rounded-lg 
+                              hover:bg-weblumin-secondary transition-colors">
                         Get in Touch
                     </a>
                 </div>
@@ -161,13 +181,76 @@
         </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
     <script>
-        // Load header
-        fetch('header.html')
+        // Load Footer
+        fetch('footer.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('header-container').innerHTML = data;
+                document.querySelector('.footer').innerHTML = data;
             });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+
+        // Portfolio filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(button => {
+                    button.classList.remove('bg-weblumin-primary', 'text-white');
+                    button.classList.add('bg-gray-200', 'text-gray-700');
+                });
+
+                // Add active class to clicked button
+                btn.classList.remove('bg-gray-200', 'text-gray-700');
+                btn.classList.add('bg-weblumin-primary', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    // Show all items if 'all' is selected
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        // Show/hide items based on category
+                        if (card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
-</html> 
+
+</html>

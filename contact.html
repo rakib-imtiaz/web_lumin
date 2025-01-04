@@ -5,24 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Weblumin</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/js/header-component.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <!-- Web Components -->
+    <script src="components/web-header.js" type="module"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'weblumin': {
+                            'primary': '#00B5B5',
+                            'secondary': '#008080',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body class="bg-white">
-    <!-- Use the custom header component -->
-    <site-header></site-header>
+    <!-- Header -->
+    <web-header></web-header>
 
-    <main class="pt-[88px] xl:pt-[112px]">
+    <!-- Main Content -->
+    <main class="pt-32">
         <!-- Contact Section -->
         <section class="py-16 md:py-24">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <!-- Section Header -->
-                    <div class="text-center mb-16 animate-fade-in">
-                        <h1 class="text-4xl md:text-5xl font-bold text-[#008080] mb-6">Get in Touch</h1>
-                        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    <div class="text-center mb-16 fade-in-up">
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get in Touch</h1>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                             Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as
                             soon as possible.
                         </p>
@@ -30,7 +74,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <!-- Contact Form -->
-                        <div class="bg-white rounded-xl shadow-lg p-8 animate-slide-up">
+                        <div class="fade-in-up bg-white rounded-xl shadow-lg p-8">
                             <form id="contact-form" class="space-y-6">
                                 <div>
                                     <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
@@ -64,7 +108,7 @@
                         </div>
 
                         <!-- Contact Information -->
-                        <div class="space-y-8 animate-slide-up delay-200">
+                        <div class="space-y-8 fade-in-up delay-200">
                             <!-- Office Location -->
                             <div class="flex items-start space-x-4">
                                 <div class="text-[#008080]">
@@ -134,6 +178,37 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
+    <script>
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.footer').innerHTML = data;
+            });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Add your form submission logic here
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Solutions - Weblumin</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/components.css">
+
+    <!-- Web Components -->
+    <script src="../components/web-header.js" type="module"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'weblumin': {
+                            'primary': '#00B5B5',
+                            'secondary': '#008080',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cloud-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cloud-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-logo {
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .tech-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00B5B5 0%, #008080 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.05;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <web-header></web-header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Enterprise Cloud Solutions
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Transform your business with scalable, secure, and efficient cloud infrastructure solutions.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="../contact.html" class="bg-weblumin-primary hover:bg-weblumin-secondary text-white px-6 py-3 rounded-lg 
+                                  transition duration-300 inline-flex items-center gap-2">
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#services" class="border border-gray-300 hover:border-weblumin-primary text-gray-700 hover:text-weblumin-primary 
+                                  px-6 py-3 rounded-lg transition duration-300 inline-flex items-center gap-2">
+                            Learn More
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="fade-in-up delay-200">
+                    <img src="../assets/images/cloud-solutions-hero.svg" alt="Cloud Solutions"
+                        class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Services Grid -->
+    <section id="services" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Comprehensive Cloud Services
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    End-to-end cloud solutions tailored to your business needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cloud Migration -->
+                <div
+                    class="service-card fade-in-up delay-100 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-cloud-upload-alt text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Cloud Migration</h3>
+                    <p class="text-gray-600">
+                        Seamless transition of your infrastructure and applications to the cloud.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Assessment and Planning
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Data Migration
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Zero Downtime
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Infrastructure -->
+                <div
+                    class="service-card fade-in-up delay-200 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-server text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Cloud Infrastructure</h3>
+                    <p class="text-gray-600">
+                        Scalable and reliable cloud infrastructure design and management.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Auto-scaling
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Load Balancing
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            High Availability
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Security -->
+                <div
+                    class="service-card fade-in-up delay-300 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Cloud Security</h3>
+                    <p class="text-gray-600">
+                        Comprehensive security solutions for your cloud infrastructure.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Encryption
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Access Control
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Compliance
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- DevOps -->
+                <div
+                    class="service-card fade-in-up delay-400 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-code-branch text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">DevOps Solutions</h3>
+                    <p class="text-gray-600">
+                        Streamline your development and operations with cloud-based DevOps.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            CI/CD Pipeline
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Infrastructure as Code
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Monitoring
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Disaster Recovery -->
+                <div
+                    class="service-card fade-in-up delay-500 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-sync-alt text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Disaster Recovery</h3>
+                    <p class="text-gray-600">
+                        Ensure business continuity with robust disaster recovery solutions.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Backup Solutions
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Quick Recovery
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Data Protection
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Optimization -->
+                <div
+                    class="service-card fade-in-up delay-600 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Cloud Optimization</h3>
+                    <p class="text-gray-600">
+                        Optimize your cloud resources for better performance and cost efficiency.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Cost Management
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Performance Tuning
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Resource Planning
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Providers -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud Platforms We Work With</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We're certified partners with leading cloud providers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- AWS -->
+                <div class="fade-in-up delay-100 flex items-center justify-center">
+                    <img src="../assets/images/tech/aws.svg" alt="Amazon Web Services" class="h-12 tech-logo">
+                </div>
+                <!-- Azure -->
+                <div class="fade-in-up delay-200 flex items-center justify-center">
+                    <img src="../assets/images/tech/azure.svg" alt="Microsoft Azure" class="h-12 tech-logo">
+                </div>
+                <!-- Google Cloud -->
+                <div class="fade-in-up delay-300 flex items-center justify-center">
+                    <img src="../assets/images/tech/gcp.svg" alt="Google Cloud Platform" class="h-12 tech-logo">
+                </div>
+                <!-- Digital Ocean -->
+                <div class="fade-in-up delay-400 flex items-center justify-center">
+                    <img src="../assets/images/tech/digitalocean.svg" alt="Digital Ocean" class="h-12 tech-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose Our Cloud Solutions</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Experience the advantages of our enterprise-grade cloud services.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Scalability -->
+                <div class="fade-in-up delay-100 p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-expand-arrows-alt text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Scalability</h3>
+                    <p class="text-gray-600">
+                        Easily scale your infrastructure up or down based on demand.
+                    </p>
+                </div>
+
+                <!-- Cost-Effective -->
+                <div class="fade-in-up delay-200 p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-piggy-bank text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Cost-Effective</h3>
+                    <p class="text-gray-600">
+                        Pay only for the resources you use with optimized cloud spending.
+                    </p>
+                </div>
+
+                <!-- Security -->
+                <div class="fade-in-up delay-300 p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-lock text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Enhanced Security</h3>
+                    <p class="text-gray-600">
+                        Enterprise-grade security measures to protect your data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    See how our cloud solutions have transformed businesses.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study Cards -->
+                <div class="fade-in-up delay-100 bg-white rounded-xl shadow-md overflow-hidden">
+                    <img src="../assets/images/case-study-1.jpg" alt="Case Study 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Enterprise Migration</h3>
+                        <p class="text-gray-600 mb-4">
+                            Successfully migrated a large enterprise to cloud infrastructure.
+                        </p>
+                        <a href="#" class="text-weblumin-primary hover:text-weblumin-secondary transition duration-300">
+                            Read More →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Add more case study cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-weblumin-primary">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+                    Ready to Transform Your Infrastructure?
+                </h2>
+                <p class="text-lg text-white/90 mb-8">
+                    Let's discuss how our cloud solutions can benefit your business.
+                </p>
+                <a href="../contact.html" class="bg-white text-weblumin-primary hover:bg-gray-100 px-8 py-3 rounded-lg 
+                          transition duration-300 inline-flex items-center gap-2">
+                    Get Started
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
+    <script>
+        // Load Footer
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.footer').innerHTML = data;
+            });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>

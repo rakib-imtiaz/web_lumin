@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Consulting Services - Weblumin</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/components.css">
+
+    <!-- Web Components -->
+    <script src="../components/web-header.js" type="module"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'weblumin': {
+                            'primary': '#00B5B5',
+                            'secondary': '#008080',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .consulting-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .consulting-card:hover {
+            transform: translateY(-5px);
+            border-color: #00B5B5;
+        }
+
+        .process-arrow {
+            position: relative;
+        }
+
+        .process-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 60px;
+            height: 2px;
+            background: #E5E7EB;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .process-arrow::after {
+                display: none;
+            }
+        }
+
+        .testimonial-card {
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            color: #00B5B5;
+            opacity: 0.1;
+            font-family: serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <web-header></web-header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Strategic IT Consulting
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Transform your business with expert IT consulting services that drive innovation and growth.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="../contact.html" class="bg-weblumin-primary hover:bg-weblumin-secondary text-white px-6 py-3 rounded-lg 
+                                  transition duration-300 inline-flex items-center gap-2">
+                            Schedule Consultation
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#services" class="border border-gray-300 hover:border-weblumin-primary text-gray-700 hover:text-weblumin-primary 
+                                  px-6 py-3 rounded-lg transition duration-300 inline-flex items-center gap-2">
+                            Our Services
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="fade-in-up delay-200">
+                    <img src="../assets/images/consulting-hero.svg" alt="IT Consulting"
+                        class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Our Consulting Services
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive IT consulting solutions tailored to your business needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Strategy Consulting -->
+                <div class="consulting-card fade-in-up delay-100 bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chess text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">IT Strategy</h3>
+                    <p class="text-gray-600 mb-4">
+                        Develop comprehensive IT strategies aligned with your business goals.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Digital Transformation
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Technology Roadmap
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Innovation Planning
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Security Consulting -->
+                <div class="consulting-card fade-in-up delay-200 bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Security Consulting</h3>
+                    <p class="text-gray-600 mb-4">
+                        Protect your business with comprehensive security solutions.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Security Audits
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Risk Assessment
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Compliance
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Infrastructure Consulting -->
+                <div class="consulting-card fade-in-up delay-300 bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-network-wired text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Infrastructure</h3>
+                    <p class="text-gray-600 mb-4">
+                        Optimize your IT infrastructure for maximum efficiency.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Architecture Design
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Cloud Migration
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Performance Optimization
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Digital Transformation -->
+                <div class="consulting-card fade-in-up delay-400 bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-digital-tachograph text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Digital Transformation</h3>
+                    <p class="text-gray-600 mb-4">
+                        Guide your business through digital transformation.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Process Automation
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Digital Strategy
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Change Management
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Project Management -->
+                <div class="consulting-card fade-in-up delay-500 bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-tasks text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Project Management</h3>
+                    <p class="text-gray-600 mb-4">
+                        Expert project management for IT initiatives.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Agile Methods
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Resource Planning
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Risk Management
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Technology Assessment -->
+                <div class="consulting-card fade-in-up delay-600 bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-microscope text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Technology Assessment</h3>
+                    <p class="text-gray-600 mb-4">
+                        Evaluate and optimize your technology stack.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Tech Stack Review
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            Vendor Assessment
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-weblumin-primary mr-2"></i>
+                            ROI Analysis
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Process -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Consulting Process</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    A structured approach to delivering effective IT consulting solutions.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Discovery -->
+                <div class="process-arrow fade-in-up delay-100 text-center">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-weblumin-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Discovery</h3>
+                    <p class="text-gray-600">Understanding your business needs and challenges.</p>
+                </div>
+
+                <!-- Analysis -->
+                <div class="process-arrow fade-in-up delay-200 text-center">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-bar text-weblumin-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Analysis</h3>
+                    <p class="text-gray-600">Detailed analysis and solution planning.</p>
+                </div>
+
+                <!-- Implementation -->
+                <div class="process-arrow fade-in-up delay-300 text-center">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-weblumin-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Implementation</h3>
+                    <p class="text-gray-600">Executing the planned solutions.</p>
+                </div>
+
+                <!-- Optimization -->
+                <div class="fade-in-up delay-400 text-center">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-weblumin-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Optimization</h3>
+                    <p class="text-gray-600">Continuous improvement and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Partner with experts who understand your business needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Expertise -->
+                <div class="fade-in-up delay-100 p-6 rounded-xl bg-white shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Expert Team</h3>
+                    <p class="text-gray-600">
+                        Seasoned consultants with deep industry knowledge.
+                    </p>
+                </div>
+
+                <!-- Proven Track Record -->
+                <div class="fade-in-up delay-200 p-6 rounded-xl bg-white shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-trophy text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Proven Track Record</h3>
+                    <p class="text-gray-600">
+                        Successful projects across various industries.
+                    </p>
+                </div>
+
+                <!-- Tailored Solutions -->
+                <div class="fade-in-up delay-300 p-6 rounded-xl bg-white shadow-md">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-puzzle-piece text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Tailored Solutions</h3>
+                    <p class="text-gray-600">
+                        Customized approaches for your unique needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    What our clients say about our consulting services.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card fade-in-up delay-100 bg-white p-6 rounded-xl shadow-md">
+                    <p class="text-gray-600 mb-6">
+                        "Weblumin's consulting services helped us transform our IT infrastructure and improve
+                        efficiency."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="../assets/images/testimonial-1.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">John Smith</h4>
+                            <p class="text-gray-600">CTO, Tech Corp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more testimonials as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-weblumin-primary">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+                    Ready to Transform Your Business?
+                </h2>
+                <p class="text-lg text-white/90 mb-8">
+                    Schedule a consultation with our experts today.
+                </p>
+                <a href="../contact.html" class="bg-white text-weblumin-primary hover:bg-gray-100 px-8 py-3 rounded-lg 
+                          transition duration-300 inline-flex items-center gap-2">
+                    Book Consultation
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
+    <script>
+        // Load Footer
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.footer').innerHTML = data;
+            });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>

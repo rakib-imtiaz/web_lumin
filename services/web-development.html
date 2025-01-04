@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Services - Weblumin</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/components.css">
+
+    <!-- Web Components -->
+    <script src="../components/web-header.js" type="module"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'weblumin': {
+                            'primary': '#00B5B5',
+                            'secondary': '#008080',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .process-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #E5E7EB;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .process-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <web-header></web-header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Modern Web Development Solutions
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Create powerful, scalable, and user-friendly web applications with our expert development team.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="../contact.html" class="bg-weblumin-primary hover:bg-weblumin-secondary text-white px-6 py-3 rounded-lg 
+                                  transition duration-300 inline-flex items-center gap-2">
+                            Start Your Project
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="fade-in-up delay-200">
+                    <img src="../assets/images/web-dev-hero.svg" alt="Web Development"
+                        class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Comprehensive Web Solutions
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    From simple websites to complex web applications, we deliver solutions that drive results.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Custom Web Development -->
+                <div
+                    class="fade-in-up delay-100 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Custom Web Development</h3>
+                    <p class="text-gray-600">
+                        Tailored solutions built from scratch to meet your specific business requirements.
+                    </p>
+                </div>
+
+                <!-- E-commerce Solutions -->
+                <div
+                    class="fade-in-up delay-200 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shopping-cart text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">E-commerce Solutions</h3>
+                    <p class="text-gray-600">
+                        Powerful online stores with secure payment gateways and inventory management.
+                    </p>
+                </div>
+
+                <!-- CMS Development -->
+                <div
+                    class="fade-in-up delay-300 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-th-large text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">CMS Development</h3>
+                    <p class="text-gray-600">
+                        Easy-to-manage content systems that give you full control over your website.
+                    </p>
+                </div>
+
+                <!-- API Integration -->
+                <div
+                    class="fade-in-up delay-400 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-plug text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">API Integration</h3>
+                    <p class="text-gray-600">
+                        Seamless integration with third-party services and custom API development.
+                    </p>
+                </div>
+
+                <!-- Progressive Web Apps -->
+                <div
+                    class="fade-in-up delay-500 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Progressive Web Apps</h3>
+                    <p class="text-gray-600">
+                        Modern web applications that work offline and feel like native apps.
+                    </p>
+                </div>
+
+                <!-- Web Maintenance -->
+                <div
+                    class="fade-in-up delay-600 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-wrench text-weblumin-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Web Maintenance</h3>
+                    <p class="text-gray-600">
+                        Ongoing support and maintenance to keep your website running smoothly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Process -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Development Process</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    A structured approach to delivering high-quality web solutions.
+                </p>
+            </div>
+
+            <div class="relative">
+                <div class="process-line"></div>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Discovery -->
+                    <div class="fade-in-up delay-100 text-center">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-search text-weblumin-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Discovery</h3>
+                        <p class="text-gray-600">Understanding your needs and planning the solution.</p>
+                    </div>
+
+                    <!-- Design -->
+                    <div class="fade-in-up delay-200 text-center">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-pencil-ruler text-weblumin-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Design</h3>
+                        <p class="text-gray-600">Creating intuitive and engaging user experiences.</p>
+                    </div>
+
+                    <!-- Development -->
+                    <div class="fade-in-up delay-300 text-center">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-weblumin-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Development</h3>
+                        <p class="text-gray-600">Building robust and scalable solutions.</p>
+                    </div>
+
+                    <!-- Launch -->
+                    <div class="fade-in-up delay-400 text-center">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-weblumin-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Launch</h3>
+                        <p class="text-gray-600">Deploying and maintaining your web solution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Technologies We Use</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Modern tools and frameworks for building powerful web applications.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Add your technology logos here -->
+                <!-- Example: -->
+                <div class="fade-in-up p-4 flex items-center justify-center">
+                    <img src="../assets/images/tech/react.svg" alt="React"
+                        class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300">
+                </div>
+                <!-- Add more technology logos -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-weblumin-primary">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+                    Ready to Start Your Web Project?
+                </h2>
+                <p class="text-lg text-white/90 mb-8">
+                    Let's discuss how we can help bring your vision to life.
+                </p>
+                <a href="../contact.html" class="bg-white text-weblumin-primary hover:bg-gray-100 px-8 py-3 rounded-lg 
+                          transition duration-300 inline-flex items-center gap-2">
+                    Get in Touch
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
+    <script>
+        // Load Footer
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.footer').innerHTML = data;
+            });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>

@@ -302,7 +302,7 @@
     </section>
 
     <!-- Footer -->
-    <link rel="import" href="footer.html">
+    <footer class="footer"></footer>
 
     <script>
         // Intersection Observer for fade-in animations
@@ -352,6 +352,13 @@
         });
 
         counters.forEach(counter => counterObserver.observe(counter));
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.footer').innerHTML = data;
+            });
     </script>
 </body>
 
