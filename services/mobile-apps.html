@@ -80,60 +80,59 @@
         }
 
         /* Platform Toggle Styles */
-        .platform-toggle {
-            position: relative;
-            display: inline-block;
-            width: 200px;
-            height: 40px;
-            background: #f3f4f6;
-            border-radius: 20px;
-            overflow: hidden;
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .platform-toggle input {
+        .platform-tab {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .platform-tab.active {
+            background: #00B5B5;
+            color: white;
+            border-color: #00B5B5;
+        }
+
+        .platform-tab:not(.active) {
+            background: #f3f4f6;
+            color: #6b7280;
+            border-color: #f3f4f6;
+        }
+
+        .platform-tab:not(.active):hover {
+            border-color: #00B5B5;
+            color: #00B5B5;
+        }
+
+        .platform-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
             display: none;
         }
 
-        .platform-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            transition: 0.4s;
+        .platform-content.active {
+            opacity: 1;
+            transform: translateY(0);
+            display: grid;
         }
 
-        .platform-option {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            cursor: pointer;
-            transition: 0.3s;
-            z-index: 1;
+        .feature-card {
+            transform: translateY(0);
+            transition: all 0.3s ease;
         }
 
-        .platform-toggle input:checked+.platform-slider .platform-option:first-child,
-        .platform-toggle input:not(:checked)+.platform-slider .platform-option:last-child {
-            color: white;
-        }
-
-        .platform-toggle::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: calc(50% - 4px);
-            height: calc(100% - 4px);
-            background: #00B5B5;
-            border-radius: 18px;
-            transition: 0.4s;
-        }
-
-        .platform-toggle input:checked+.platform-slider::after {
-            transform: translateX(100%);
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -142,343 +141,343 @@
     <!-- Header -->
     <web-header></web-header>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <!-- Main Content -->
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in-up">
+                        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Mobile App Development Solutions
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8">
+                            Transform your ideas into powerful mobile applications that engage users and drive business
+                            growth.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="../contact.html" class="bg-weblumin-primary hover:bg-weblumin-secondary text-white px-6 py-3 rounded-lg 
+                                      transition duration-300 inline-flex items-center gap-2">
+                                Start Your App Project
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fade-in-up delay-200">
+                        <img src="../assets/images/mobile-dev-hero.png" alt="Mobile App Development"
+                            class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                        Complete Mobile Solutions
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        End-to-end mobile app development services for iOS and Android platforms.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- iOS Development -->
+                    <div
+                        class="fade-in-up delay-100 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fab fa-apple text-weblumin-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">iOS Development</h3>
+                        <p class="text-gray-600">
+                            Native iOS apps built with Swift for optimal performance and user experience.
+                        </p>
+                    </div>
+
+                    <!-- Android Development -->
+                    <div
+                        class="fade-in-up delay-200 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fab fa-android text-weblumin-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Android Development</h3>
+                        <p class="text-gray-600">
+                            Custom Android applications using Kotlin and Java for maximum reach.
+                        </p>
+                    </div>
+
+                    <!-- Cross-Platform -->
+                    <div
+                        class="fade-in-up delay-300 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-mobile-alt text-weblumin-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Cross-Platform Apps</h3>
+                        <p class="text-gray-600">
+                            React Native and Flutter solutions for cost-effective multi-platform deployment.
+                        </p>
+                    </div>
+
+                    <!-- UI/UX Design -->
+                    <div
+                        class="fade-in-up delay-400 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-paint-brush text-weblumin-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">UI/UX Design</h3>
+                        <p class="text-gray-600">
+                            Intuitive and engaging mobile interfaces that users love.
+                        </p>
+                    </div>
+
+                    <!-- App Testing -->
+                    <div
+                        class="fade-in-up delay-500 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-vial text-weblumin-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">App Testing</h3>
+                        <p class="text-gray-600">
+                            Comprehensive testing to ensure quality and performance.
+                        </p>
+                    </div>
+
+                    <!-- App Maintenance -->
+                    <div
+                        class="fade-in-up delay-600 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-tools text-weblumin-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">App Maintenance</h3>
+                        <p class="text-gray-600">
+                            Regular updates and support to keep your app running smoothly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Process -->
+        <section class="py-20 px-4 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our App Development Process</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        A proven methodology to deliver exceptional mobile applications.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div class="process-line"></div>
+                    <div class="grid md:grid-cols-5 gap-8">
+                        <!-- Strategy -->
+                        <div class="fade-in-up delay-100 text-center">
+                            <div
+                                class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-lightbulb text-weblumin-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Strategy</h3>
+                            <p class="text-gray-600">Research and planning</p>
+                        </div>
+
+                        <!-- Design -->
+                        <div class="fade-in-up delay-200 text-center">
+                            <div
+                                class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-pencil-ruler text-weblumin-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Design</h3>
+                            <p class="text-gray-600">UI/UX prototyping</p>
+                        </div>
+
+                        <!-- Development -->
+                        <div class="fade-in-up delay-300 text-center">
+                            <div
+                                class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-code text-weblumin-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Development</h3>
+                            <p class="text-gray-600">Agile development</p>
+                        </div>
+
+                        <!-- Testing -->
+                        <div class="fade-in-up delay-400 text-center">
+                            <div
+                                class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-vial text-weblumin-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Testing</h3>
+                            <p class="text-gray-600">Quality assurance</p>
+                        </div>
+
+                        <!-- Launch -->
+                        <div class="fade-in-up delay-500 text-center">
+                            <div
+                                class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-rocket text-weblumin-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Launch</h3>
+                            <p class="text-gray-600">Store deployment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Features -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Platform-Specific Features</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+                        Optimized development for both major mobile platforms.
+                    </p>
+
+                    <!-- Platform Tabs -->
+                    <div class="platform-tabs">
+                        <button class="platform-tab active" data-platform="ios">
+                            <i class="fab fa-apple mr-2"></i>iOS
+                        </button>
+                        <button class="platform-tab" data-platform="android">
+                            <i class="fab fa-android mr-2"></i>Android
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Platform Features Content -->
+                <div id="platformFeatures">
+                    <!-- iOS Features -->
+                    <div id="iosFeatures" class="platform-content active grid md:grid-cols-2 gap-8"></div>
+
+                    <!-- Android Features -->
+                    <div id="androidFeatures" class="platform-content grid md:grid-cols-2 gap-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="py-20 px-4 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Technologies We Use</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Industry-leading tools and frameworks for mobile app development.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                    <!-- Swift -->
+                    <div class="fade-in-up delay-100 flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" alt="Swift" class="h-12 tech-logo">
+                    </div>
+                    <!-- Kotlin -->
+                    <div class="fade-in-up delay-200 flex items-center justify-center">
+                        <img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" alt="Kotlin" class="h-12 tech-logo">
+                    </div>
+                    <!-- React Native -->
+                    <div class="fade-in-up delay-300 flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/kristerkari/react-native-svg-transformer/master/images/react-native-logo.png" alt="React Native" class="h-12 tech-logo">
+                    </div>
+                    <!-- Flutter -->
+                    <div class="fade-in-up delay-400 flex items-center justify-center">
+                        <img src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg" alt="Flutter" class="h-12 tech-logo">
+                    </div>
+                    <!-- Firebase -->
+                    <div class="fade-in-up delay-500 flex items-center justify-center">
+                        <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase" class="h-12 tech-logo">
+                    </div>
+                    <!-- Android Studio -->
+                    <div class="fade-in-up delay-600 flex items-center justify-center">
+                        <img src="https://developer.android.com/static/studio/images/new-studio-logo-1_1920.png" alt="Android Studio" class="h-12 tech-logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Showcase -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our App Portfolio</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Successful mobile applications we've delivered.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- App Showcase Items -->
+                    <!-- Will be populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Metrics -->
+        <section class="py-20 px-4 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div class="fade-in-up">
+                        <div class="text-4xl font-bold text-weblumin-primary mb-2">
+                            <span class="counter" data-target="50">0</span>+
+                        </div>
+                        <p class="text-gray-600">Apps Delivered</p>
+                    </div>
+                    <div class="fade-in-up delay-100">
+                        <div class="text-4xl font-bold text-weblumin-primary mb-2">
+                            <span class="counter" data-target="1000000">0</span>+
+                        </div>
+                        <p class="text-gray-600">App Downloads</p>
+                    </div>
+                    <div class="fade-in-up delay-200">
+                        <div class="text-4xl font-bold text-weblumin-primary mb-2">
+                            <span class="counter" data-target="40">0</span>+
+                        </div>
+                        <p class="text-gray-600">Happy Clients</p>
+                    </div>
+                    <div class="fade-in-up delay-300">
+                        <div class="text-4xl font-bold text-weblumin-primary mb-2">4.8</div>
+                        <p class="text-gray-600">Average Rating</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Testimonials -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        What our clients say about our mobile app development services.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial cards will be populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-4 bg-weblumin-primary">
+            <div class="max-w-4xl mx-auto text-center">
                 <div class="fade-in-up">
-                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        Mobile App Development Solutions
-                    </h1>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Transform your ideas into powerful mobile applications that engage users and drive business
-                        growth.
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+                        Ready to Build Your Mobile App?
+                    </h2>
+                    <p class="text-lg text-white/90 mb-8">
+                        Let's turn your app idea into reality.
                     </p>
-                    <div class="flex gap-4">
-                        <a href="../contact.html" class="bg-weblumin-primary hover:bg-weblumin-secondary text-white px-6 py-3 rounded-lg 
-                                  transition duration-300 inline-flex items-center gap-2">
-                            Start Your App Project
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="fade-in-up delay-200">
-                    <img src="../assets/images/mobile-dev-hero.svg" alt="Mobile App Development"
-                        class="w-full h-auto rounded-lg shadow-lg">
+                    <a href="../contact.html" class="bg-white text-weblumin-primary hover:bg-gray-100 px-8 py-3 rounded-lg 
+                              transition duration-300 inline-flex items-center gap-2">
+                        Start Your Project
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                    Complete Mobile Solutions
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    End-to-end mobile app development services for iOS and Android platforms.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- iOS Development -->
-                <div
-                    class="fade-in-up delay-100 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fab fa-apple text-weblumin-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">iOS Development</h3>
-                    <p class="text-gray-600">
-                        Native iOS apps built with Swift for optimal performance and user experience.
-                    </p>
-                </div>
-
-                <!-- Android Development -->
-                <div
-                    class="fade-in-up delay-200 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fab fa-android text-weblumin-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Android Development</h3>
-                    <p class="text-gray-600">
-                        Custom Android applications using Kotlin and Java for maximum reach.
-                    </p>
-                </div>
-
-                <!-- Cross-Platform -->
-                <div
-                    class="fade-in-up delay-300 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-mobile-alt text-weblumin-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Cross-Platform Apps</h3>
-                    <p class="text-gray-600">
-                        React Native and Flutter solutions for cost-effective multi-platform deployment.
-                    </p>
-                </div>
-
-                <!-- UI/UX Design -->
-                <div
-                    class="fade-in-up delay-400 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-paint-brush text-weblumin-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">UI/UX Design</h3>
-                    <p class="text-gray-600">
-                        Intuitive and engaging mobile interfaces that users love.
-                    </p>
-                </div>
-
-                <!-- App Testing -->
-                <div
-                    class="fade-in-up delay-500 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-vial text-weblumin-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">App Testing</h3>
-                    <p class="text-gray-600">
-                        Comprehensive testing to ensure quality and performance.
-                    </p>
-                </div>
-
-                <!-- App Maintenance -->
-                <div
-                    class="fade-in-up delay-600 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-tools text-weblumin-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">App Maintenance</h3>
-                    <p class="text-gray-600">
-                        Regular updates and support to keep your app running smoothly.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Development Process -->
-    <section class="py-20 px-4 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our App Development Process</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    A proven methodology to deliver exceptional mobile applications.
-                </p>
-            </div>
-
-            <div class="relative">
-                <div class="process-line"></div>
-                <div class="grid md:grid-cols-5 gap-8">
-                    <!-- Strategy -->
-                    <div class="fade-in-up delay-100 text-center">
-                        <div
-                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-lightbulb text-weblumin-primary text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Strategy</h3>
-                        <p class="text-gray-600">Research and planning</p>
-                    </div>
-
-                    <!-- Design -->
-                    <div class="fade-in-up delay-200 text-center">
-                        <div
-                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-pencil-ruler text-weblumin-primary text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Design</h3>
-                        <p class="text-gray-600">UI/UX prototyping</p>
-                    </div>
-
-                    <!-- Development -->
-                    <div class="fade-in-up delay-300 text-center">
-                        <div
-                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-code text-weblumin-primary text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Development</h3>
-                        <p class="text-gray-600">Agile development</p>
-                    </div>
-
-                    <!-- Testing -->
-                    <div class="fade-in-up delay-400 text-center">
-                        <div
-                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-vial text-weblumin-primary text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Testing</h3>
-                        <p class="text-gray-600">Quality assurance</p>
-                    </div>
-
-                    <!-- Launch -->
-                    <div class="fade-in-up delay-500 text-center">
-                        <div
-                            class="w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-rocket text-weblumin-primary text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Launch</h3>
-                        <p class="text-gray-600">Store deployment</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Platform Features -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Platform-Specific Features</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                    Optimized development for both major mobile platforms.
-                </p>
-
-                <!-- Platform Toggle -->
-                <div class="platform-toggle mx-auto mb-12">
-                    <input type="checkbox" id="platformToggle">
-                    <div class="platform-slider">
-                        <span class="platform-option">iOS</span>
-                        <span class="platform-option">Android</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Platform Features Content -->
-            <div id="platformFeatures" class="grid md:grid-cols-2 gap-8">
-                <!-- iOS Features (default) -->
-                <div id="iosFeatures" class="space-y-6">
-                    <!-- Feature items will be dynamically populated -->
-                </div>
-
-                <!-- Android Features (hidden by default) -->
-                <div id="androidFeatures" class="space-y-6 hidden">
-                    <!-- Feature items will be dynamically populated -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technologies -->
-    <section class="py-20 px-4 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Technologies We Use</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Industry-leading tools and frameworks for mobile app development.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-                <!-- Swift -->
-                <div class="fade-in-up delay-100 flex items-center justify-center">
-                    <img src="../assets/images/tech/swift.svg" alt="Swift" class="h-12 tech-logo">
-                </div>
-                <!-- Kotlin -->
-                <div class="fade-in-up delay-200 flex items-center justify-center">
-                    <img src="../assets/images/tech/kotlin.svg" alt="Kotlin" class="h-12 tech-logo">
-                </div>
-                <!-- React Native -->
-                <div class="fade-in-up delay-300 flex items-center justify-center">
-                    <img src="../assets/images/tech/react-native.svg" alt="React Native" class="h-12 tech-logo">
-                </div>
-                <!-- Flutter -->
-                <div class="fade-in-up delay-400 flex items-center justify-center">
-                    <img src="../assets/images/tech/flutter.svg" alt="Flutter" class="h-12 tech-logo">
-                </div>
-                <!-- Firebase -->
-                <div class="fade-in-up delay-500 flex items-center justify-center">
-                    <img src="../assets/images/tech/firebase.svg" alt="Firebase" class="h-12 tech-logo">
-                </div>
-                <!-- Android Studio -->
-                <div class="fade-in-up delay-600 flex items-center justify-center">
-                    <img src="../assets/images/tech/android-studio.svg" alt="Android Studio" class="h-12 tech-logo">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- App Showcase -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our App Portfolio</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Successful mobile applications we've delivered.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- App Showcase Items -->
-                <!-- Will be populated dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Metrics -->
-    <section class="py-20 px-4 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 text-center">
-                <div class="fade-in-up">
-                    <div class="text-4xl font-bold text-weblumin-primary mb-2">
-                        <span class="counter" data-target="50">0</span>+
-                    </div>
-                    <p class="text-gray-600">Apps Delivered</p>
-                </div>
-                <div class="fade-in-up delay-100">
-                    <div class="text-4xl font-bold text-weblumin-primary mb-2">
-                        <span class="counter" data-target="1000000">0</span>+
-                    </div>
-                    <p class="text-gray-600">App Downloads</p>
-                </div>
-                <div class="fade-in-up delay-200">
-                    <div class="text-4xl font-bold text-weblumin-primary mb-2">
-                        <span class="counter" data-target="40">0</span>+
-                    </div>
-                    <p class="text-gray-600">Happy Clients</p>
-                </div>
-                <div class="fade-in-up delay-300">
-                    <div class="text-4xl font-bold text-weblumin-primary mb-2">4.8</div>
-                    <p class="text-gray-600">Average Rating</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Testimonials -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    What our clients say about our mobile app development services.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial cards will be populated dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 px-4 bg-weblumin-primary">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="fade-in-up">
-                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
-                    Ready to Build Your Mobile App?
-                </h2>
-                <p class="text-lg text-white/90 mb-8">
-                    Let's turn your app idea into reality.
-                </p>
-                <a href="../contact.html" class="bg-white text-weblumin-primary hover:bg-gray-100 px-8 py-3 rounded-lg 
-                          transition duration-300 inline-flex items-center gap-2">
-                    Start Your Project
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer"></footer>
@@ -491,19 +490,21 @@
                 document.querySelector('.footer').innerHTML = data;
             });
 
-        // Platform Toggle Functionality
-        const platformToggle = document.getElementById('platformToggle');
-        const iosFeatures = document.getElementById('iosFeatures');
-        const androidFeatures = document.getElementById('androidFeatures');
+        // Platform Tabs Functionality
+        const platformTabs = document.querySelectorAll('.platform-tab');
+        const platformContents = document.querySelectorAll('.platform-content');
 
-        platformToggle.addEventListener('change', function () {
-            if (this.checked) {
-                iosFeatures.classList.add('hidden');
-                androidFeatures.classList.remove('hidden');
-            } else {
-                androidFeatures.classList.add('hidden');
-                iosFeatures.classList.remove('hidden');
-            }
+        platformTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                platformTabs.forEach(t => t.classList.remove('active'));
+                platformContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const platform = tab.dataset.platform;
+                document.getElementById(`${platform}Features`).classList.add('active');
+            });
         });
 
         // Counter Animation
@@ -543,35 +544,78 @@
 
         document.querySelectorAll('.fade-in-up, .counter').forEach((el) => observer.observe(el));
 
-        // Populate platform features
+        // Platform Features Data
         const iosFeaturesList = [
-            { icon: 'fab fa-apple', title: 'Native iOS Development', description: 'Pure Swift development for optimal performance' },
-            { icon: 'fas fa-mobile-alt', title: 'iOS Design Guidelines', description: 'Following Apple\'s Human Interface Guidelines' },
-            { icon: 'fas fa-lock', title: 'iOS Security', description: 'Implementation of iOS security best practices' },
-            // Add more iOS features
+            {
+                icon: 'fab fa-apple',
+                title: 'Native iOS Development',
+                description: 'Pure Swift development for optimal performance and seamless integration with iOS ecosystem'
+            },
+            {
+                icon: 'fas fa-mobile-alt',
+                title: 'iOS Design Guidelines',
+                description: 'Strict adherence to Apple\'s Human Interface Guidelines for consistent user experience'
+            },
+            {
+                icon: 'fas fa-lock',
+                title: 'iOS Security',
+                description: 'Implementation of advanced iOS security features and best practices'
+            },
+            {
+                icon: 'fas fa-sync',
+                title: 'iCloud Integration',
+                description: 'Seamless data synchronization across Apple devices using iCloud'
+            }
         ];
 
         const androidFeaturesList = [
-            { icon: 'fab fa-android', title: 'Native Android Development', description: 'Kotlin-first development approach' },
-            { icon: 'fas fa-palette', title: 'Material Design', description: 'Following Google\'s Material Design principles' },
-            { icon: 'fas fa-cog', title: 'Android Integration', description: 'Deep integration with Android ecosystem' },
-            // Add more Android features
+            {
+                icon: 'fab fa-android',
+                title: 'Native Android Development',
+                description: 'Modern Kotlin-first development approach for robust Android applications'
+            },
+            {
+                icon: 'fas fa-palette',
+                title: 'Material Design',
+                description: 'Implementation of Google\'s Material Design principles for beautiful UIs'
+            },
+            {
+                icon: 'fas fa-cog',
+                title: 'Android Integration',
+                description: 'Deep integration with Android ecosystem and Google services'
+            },
+            {
+                icon: 'fas fa-mobile-screen',
+                title: 'Device Compatibility',
+                description: 'Support for wide range of Android devices and screen sizes'
+            }
         ];
 
         // Function to create feature elements
-        const createFeatureElement = (feature) => `
-            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+        const createFeatureElement = (feature) => {
+            const div = document.createElement('div');
+            div.className = 'feature-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300';
+            div.innerHTML = `
                 <div class="w-12 h-12 bg-weblumin-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <i class="${feature.icon} text-weblumin-primary text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">${feature.title}</h3>
                 <p class="text-gray-600">${feature.description}</p>
-            </div>
-        `;
+            `;
+            return div;
+        };
 
         // Populate features
-        iosFeatures.innerHTML = iosFeaturesList.map(createFeatureElement).join('');
-        androidFeatures.innerHTML = androidFeaturesList.map(createFeatureElement).join('');
+        const iosContainer = document.getElementById('iosFeatures');
+        const androidContainer = document.getElementById('androidFeatures');
+
+        iosFeaturesList.forEach(feature => {
+            iosContainer.appendChild(createFeatureElement(feature));
+        });
+
+        androidFeaturesList.forEach(feature => {
+            androidContainer.appendChild(createFeatureElement(feature));
+        });
     </script>
 </body>
 

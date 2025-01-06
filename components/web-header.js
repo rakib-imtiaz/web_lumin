@@ -1,18 +1,22 @@
 class WebHeader extends HTMLElement {
     constructor() {
         super();
+        // Get current path and calculate base URL
+        const path = window.location.pathname;
+        const baseUrl = path.includes('/services/') ? '../' : './';
+
         this.innerHTML = `
             <header class="fixed w-full top-0 bg-white z-50 shadow-sm">
                 <div class="max-w-6xl mx-auto px-4">
                     <div class="flex items-center justify-between h-24">
                         <!-- Logo -->
-                        <a href="/" class="flex items-center">
-                            <img src="assets/images/logo.png" alt="Weblumin" class="h-16 w-auto">
+                        <a href="${baseUrl}" class="flex items-center">
+                            <img src="${baseUrl}assets/images/logo.png" alt="Weblumin" class="h-20 w-auto">
                         </a>
 
                         <!-- Desktop Navigation -->
                         <nav class="hidden md:flex items-center space-x-8">
-                            <a href="/" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
+                            <a href="${baseUrl}" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
                                 <i class="fas fa-home"></i>
                                 <span>Home</span>
                             </a>
@@ -27,22 +31,22 @@ class WebHeader extends HTMLElement {
                                 <div class="absolute top-full left-0 w-64 bg-gradient-to-br from-weblumin-primary to-weblumin-secondary 
                                             rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible 
                                             transition-all duration-300 -translate-y-2 group-hover:translate-y-0">
-                                    <a href="/services/web-development.html" 
+                                    <a href="${baseUrl}services/web-development.html" 
                                        class="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10">
                                         <i class="fas fa-code w-5"></i>
                                         <span>Web Development</span>
                                     </a>
-                                    <a href="/services/mobile-apps.html" 
+                                    <a href="${baseUrl}services/mobile-apps.html" 
                                        class="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10">
                                         <i class="fas fa-mobile-alt w-5"></i>
                                         <span>Mobile Apps</span>
                                     </a>
-                                    <a href="/services/cloud-solutions.html" 
+                                    <a href="${baseUrl}services/cloud-solutions.html" 
                                        class="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10">
                                         <i class="fas fa-cloud w-5"></i>
                                         <span>Cloud Solutions</span>
                                     </a>
-                                    <a href="/services/consulting.html" 
+                                    <a href="${baseUrl}services/consulting.html" 
                                        class="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10">
                                         <i class="fas fa-lightbulb w-5"></i>
                                         <span>Consulting</span>
@@ -50,15 +54,15 @@ class WebHeader extends HTMLElement {
                                 </div>
                             </div>
 
-                            <a href="/portfolio.html" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
+                            <a href="${baseUrl}portfolio.html" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
                                 <i class="fas fa-briefcase"></i>
                                 <span>Portfolio</span>
                             </a>
-                            <a href="/about.html" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
+                            <a href="${baseUrl}about.html" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
                                 <i class="fas fa-info-circle"></i>
                                 <span>About</span>
                             </a>
-                            <a href="/contact.html" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
+                            <a href="${baseUrl}contact.html" class="flex items-center gap-2 text-gray-700 hover:text-weblumin-primary transition duration-300">
                                 <i class="fas fa-envelope"></i>
                                 <span>Contact</span>
                             </a>
@@ -80,7 +84,7 @@ class WebHeader extends HTMLElement {
                         </button>
                         
                         <nav class="mt-8 space-y-4">
-                            <a href="/" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
+                            <a href="${baseUrl}" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
                                 <i class="fas fa-home w-5"></i>
                                 <span>Home</span>
                             </a>
@@ -96,34 +100,34 @@ class WebHeader extends HTMLElement {
                                     <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
                                 </button>
                                 <div id="mobile-services-dropdown" class="hidden pl-4 space-y-2">
-                                    <a href="/services/web-development.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
+                                    <a href="${baseUrl}services/web-development.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
                                         <i class="fas fa-code w-5"></i>
                                         <span>Web Development</span>
                                     </a>
-                                    <a href="/services/mobile-apps.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
+                                    <a href="${baseUrl}services/mobile-apps.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
                                         <i class="fas fa-mobile-alt w-5"></i>
                                         <span>Mobile Apps</span>
                                     </a>
-                                    <a href="/services/cloud-solutions.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
+                                    <a href="${baseUrl}services/cloud-solutions.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
                                         <i class="fas fa-cloud w-5"></i>
                                         <span>Cloud Solutions</span>
                                     </a>
-                                    <a href="/services/consulting.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
+                                    <a href="${baseUrl}services/consulting.html" class="flex items-center gap-2 text-white/80 hover:text-white py-2">
                                         <i class="fas fa-lightbulb w-5"></i>
                                         <span>Consulting</span>
                                     </a>
                                 </div>
                             </div>
 
-                            <a href="/portfolio.html" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
+                            <a href="${baseUrl}portfolio.html" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
                                 <i class="fas fa-briefcase w-5"></i>
                                 <span>Portfolio</span>
                             </a>
-                            <a href="/about.html" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
+                            <a href="${baseUrl}about.html" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
                                 <i class="fas fa-info-circle w-5"></i>
                                 <span>About</span>
                             </a>
-                            <a href="/contact.html" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
+                            <a href="${baseUrl}contact.html" class="flex items-center gap-2 text-white/90 hover:text-white py-2">
                                 <i class="fas fa-envelope w-5"></i>
                                 <span>Contact</span>
                             </a>
